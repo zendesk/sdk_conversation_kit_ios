@@ -1,0 +1,11 @@
+framework module ZendeskSDKConversationKit {
+  umbrella header "ZendeskSDKConversationKit.h"
+
+  export *
+  module * { export * }
+}
+
+module ZendeskSDKConversationKit.Swift {
+    header "ZendeskSDKConversationKit-Swift.h"
+    requires objc
+}
