@@ -2,7 +2,7 @@
 
 # ZendeskSDKConversationKit for iOS
 
-The ZendeskSDKConversationKit library is used to communication with Zendesk Sunshine Conversations backend in iOS porjects.
+The ZendeskSDKConversationKit library is used to communicate with the Zendesk Sunshine Conversations backend in iOS projects.
 
 ## Documentation
 
