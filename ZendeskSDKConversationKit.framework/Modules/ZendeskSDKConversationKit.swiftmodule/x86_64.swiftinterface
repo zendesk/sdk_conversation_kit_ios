@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 import CoreTelephony
 import Foundation
@@ -19,8 +19,11 @@ import ZendeskSDKStorage
   @objc final public var fields: [ZendeskSDKConversationKit.Field] {
     @objc get
   }
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
   final public let formFields: [ZendeskSDKConversationKit.FormField]
-  public init(quotedMessageId: Swift.String, formFields: [ZendeskSDKConversationKit.FormField])
+  public init(quotedMessageId: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -28,10 +31,10 @@ import ZendeskSDKStorage
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKLinkAction) final public class LinkAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -41,7 +44,10 @@ import ZendeskSDKStorage
   @objc final public let text: Swift.String
   @objc final public let uri: Swift.String
   @objc final public let `default`: Swift.Bool
-  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -49,10 +55,10 @@ import ZendeskSDKStorage
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKConversation) final public class Conversation : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
@@ -73,16 +79,16 @@ import ZendeskSDKStorage
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKConversationType) public enum ConversationType : Swift.Int, Swift.Codable {
   case personal
   case group
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -104,26 +110,34 @@ public enum FormField : Swift.Equatable, Swift.Hashable {
     get
   }
   public static func == (a: ZendeskSDKConversationKit.FormField, b: ZendeskSDKConversationKit.FormField) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 extension FormField : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
-@_inheritsConvenienceInitializers @objc(ZDKUnsupportedMessageContent) final public class UnsupportedMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
+@objc(ZDKUnsupportedMessageContent) final public class UnsupportedMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
   }
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc deinit
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var hash: Swift.Int {
+    @objc get
+  }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKPostbackAction) final public class PostbackAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -132,7 +146,10 @@ extension FormField : Swift.Codable {
   }
   @objc final public let text: Swift.String
   @objc final public let payload: Swift.String
-  public init(id: Swift.String, text: Swift.String, payload: Swift.String)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, payload: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -140,17 +157,20 @@ extension FormField : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKCarouselMessageContent) final public class CarouselMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
   }
   @objc final public var messageItems: [ZendeskSDKConversationKit.MessageActionItem]
-  public init(messageItems: [ZendeskSDKConversationKit.MessageActionItem])
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(messageItems: [ZendeskSDKConversationKit.MessageActionItem], metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -158,10 +178,10 @@ extension FormField : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKRealtimeSettings) final public class RealtimeSettings : ObjectiveC.NSObject, Swift.Codable {
   @objc final public var baseURL: Swift.String
@@ -170,10 +190,10 @@ extension FormField : Swift.Codable {
   @objc final public var connectionDelay: Foundation.TimeInterval
   @objc final public var enabled: Swift.Bool
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public protocol ConversationKitBuilder {
   func build(withCallbackQueue: Dispatch.DispatchQueue) -> ZendeskSDKConversationKit.ConversationKit
@@ -184,8 +204,8 @@ public protocol ConversationKitBuilder {
 }
 @_inheritsConvenienceInitializers @objc(ZDKDefaultConversationKitBuilder) final public class DefaultConversationKitBuilder : ObjectiveC.NSObject, ZendeskSDKConversationKit.ConversationKitBuilder, ZendeskSDKConversationKit.ConversationKitBuilderObjC {
   final public func build(withCallbackQueue callbackQueue: Dispatch.DispatchQueue = .main) -> ZendeskSDKConversationKit.ConversationKit
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension DefaultConversationKitBuilder {
   @available(swift, obsoleted: 1.0)
@@ -197,7 +217,10 @@ extension DefaultConversationKitBuilder {
     @objc get
   }
   @objc final public let text: Swift.String
-  public init(id: Swift.String, text: Swift.String)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -205,10 +228,10 @@ extension DefaultConversationKitBuilder {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
@@ -252,6 +275,7 @@ extension ConversationKit {
 }
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
   @objc var type: ZendeskSDKConversationKit.MessageType { get }
+  @objc var metadata: [Swift.String : Swift.AnyHashable]? { get }
 }
 public enum MessageContent : Swift.Equatable, Swift.Hashable {
   case text(ZendeskSDKConversationKit.TextMessageContent)
@@ -262,10 +286,10 @@ public enum MessageContent : Swift.Equatable, Swift.Hashable {
   case file(ZendeskSDKConversationKit.FileMessageContent)
   case unsupported(ZendeskSDKConversationKit.UnsupportedMessageContent)
   public static func == (a: ZendeskSDKConversationKit.MessageContent, b: ZendeskSDKConversationKit.MessageContent) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 extension MessageContent : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
@@ -305,16 +329,16 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKMessageItemSize) public enum ActionItemSize : Swift.Int, Swift.Codable {
   case large
   case compact
   case none
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -322,8 +346,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
 @objc(ZDKAuthorType) public enum AuthorType : Swift.Int, Swift.Codable {
   case user
   case business
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -339,10 +363,10 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKImageMessageContent) final public class ImageMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -350,7 +374,10 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
   @objc final public let mediaURL: Swift.String
   @objc final public let text: Swift.String?
-  public init(mediaURL: Swift.String, text: Swift.String? = nil)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(mediaURL: Swift.String, text: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -359,9 +386,9 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKOption) final public class Option : ObjectiveC.NSObject, Swift.Codable {
   final public let label: Swift.String
@@ -371,10 +398,10 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKParticipant) final public class Participant : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
@@ -385,10 +412,10 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKField) public protocol Field : ObjectiveC.NSObjectProtocol {
   @objc var id: Swift.String { get }
@@ -404,8 +431,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   public var stringValue: Swift.String {
     get
   }
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -418,8 +445,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(ZDKMessageType) public enum MessageType : Swift.Int, Swift.Codable {
   case text
@@ -434,8 +461,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   public var stringValue: Swift.String {
     get
   }
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -459,8 +486,8 @@ public enum ConversationKitEvent {
   case messageUpdated
   case pushTokenPrepared
   case pushTokenUpdateResult
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -468,14 +495,14 @@ public enum ConversationKitEvent {
 @_hasMissingDesignatedInitializers @objc public class ZDKMessageEvent : ObjectiveC.NSObject {
   @objc final public let message: ZendeskSDKConversationKit.Message
   @objc final public let conversationId: Swift.String
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class ZDKPushTokenEvent : ObjectiveC.NSObject {
   @objc final public let token: Swift.String
   @objc final public let error: Swift.Error?
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(ZDKFieldType) public enum FieldType : Swift.Int, Swift.Codable {
   case text
@@ -484,8 +511,8 @@ public enum ConversationKitEvent {
   public var description: Swift.String {
     get
   }
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -513,9 +540,9 @@ public enum ConversationKitEvent {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension SelectFormField {
   @available(swift, obsoleted: 1.0)
@@ -534,9 +561,9 @@ extension SelectFormField {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension Author {
   @objc override final public var description: Swift.String {
@@ -554,18 +581,22 @@ extension Author {
   public var description: Swift.String {
     get
   }
+  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 @objc(ZDKTextMessageContent) final public class TextMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
   }
   @objc final public let text: Swift.String
-  public init(text: Swift.String)
+  @objc final public let payload: Swift.String?
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -574,9 +605,9 @@ extension Author {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKWebViewAction) final public class WebViewAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -587,7 +618,10 @@ extension Author {
   @objc final public let uri: Swift.String
   @objc final public let `default`: Swift.Bool
   @objc final public let fallback: Swift.String
-  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -595,17 +629,17 @@ extension Author {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
+  @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKConversationKitSettings) final public class ConversationKitSettings : ObjectiveC.NSObject {
   @objc(ZDKRegion) public enum Region : Swift.Int {
     case us
     case eu
-    public typealias RawValue = Swift.Int
     public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
     }
@@ -615,8 +649,8 @@ extension Author {
   final public var baseURL: Swift.String?
   @objc public init(integrationId: Swift.String, region: ZendeskSDKConversationKit.ConversationKitSettings.Region = .us, baseURL: Swift.String? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 extension ConversationKitSettings {
   @available(swift, obsoleted: 1.0)
@@ -645,7 +679,7 @@ extension ConversationKitSettings {
   }
   final public let actionModels: [ZendeskSDKConversationKit.MessageActionModel]?
   public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(userId: "", displayName: ""), sourceId: Swift.String? = nil, localId: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil)
-  @objc convenience public init(text: Swift.String)
+  @objc convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var hash: Swift.Int {
     @objc get
@@ -654,9 +688,9 @@ extension ConversationKitSettings {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension Message {
   @objc final public func isAuthoredBy(_ participant: ZendeskSDKConversationKit.Participant?) -> Swift.Bool
@@ -670,8 +704,11 @@ extension Message {
     @objc get
   }
   @objc final public let blockChatInput: Swift.Bool
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
   final public let formFields: [ZendeskSDKConversationKit.FormField]
-  public init(id: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], blockChatInput: Swift.Bool)
+  public init(id: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], blockChatInput: Swift.Bool, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -680,13 +717,14 @@ extension Message {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKMessageAction) public protocol MessageAction : ObjectiveC.NSObjectProtocol {
   @objc var id: Swift.String { get }
   @objc var type: ZendeskSDKConversationKit.ActionType { get }
+  @objc var metadata: [Swift.String : Swift.AnyHashable]? { get }
 }
 @objc(ZDKActionType) public enum ActionType : Swift.Int, Swift.Codable {
   case buy
@@ -696,8 +734,8 @@ extension Message {
   case reply
   case share
   case webview
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -711,10 +749,10 @@ public enum MessageActionModel : Swift.Equatable, Swift.Hashable {
   case share(ZendeskSDKConversationKit.ShareAction)
   case webview(ZendeskSDKConversationKit.WebViewAction)
   public static func == (a: ZendeskSDKConversationKit.MessageActionModel, b: ZendeskSDKConversationKit.MessageActionModel) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 extension MessageActionModel : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
@@ -728,7 +766,10 @@ extension MessageActionModel : Swift.Codable {
   @objc final public let text: Swift.String
   @objc final public let payload: Swift.String
   @objc final public let iconUrl: Swift.String?
-  public init(id: Swift.String, text: Swift.String, payload: Swift.String, iconUrl: Swift.String?)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, payload: Swift.String, iconUrl: Swift.String?)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -737,9 +778,9 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKEmailFormField) final public class EmailFormField : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Field {
   @objc final public var type: ZendeskSDKConversationKit.FieldType {
@@ -762,9 +803,9 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKFileMessageContent) final public class FileMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -775,7 +816,10 @@ extension MessageActionModel : Swift.Codable {
   @objc final public let mediaURL: Swift.String
   @objc final public let mediaType: Swift.String
   @objc final public let mediaSize: Swift.Int64
-  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, mediaType: Swift.String, mediaSize: Swift.Int64)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -784,9 +828,9 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKMessageStatus) public enum MessageStatus : Swift.Int, Swift.Codable {
   case pending
@@ -795,18 +839,21 @@ extension MessageActionModel : Swift.Codable {
   public var description: Swift.String {
     get
   }
+  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
-  public init?(rawValue: Swift.Int)
 }
 @_hasMissingDesignatedInitializers @objc(ZDKShareAction) final public class ShareAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
   @objc final public var type: ZendeskSDKConversationKit.ActionType {
     @objc get
   }
-  public init(id: Swift.String)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -815,9 +862,9 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKBuyAction) final public class BuyAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -830,7 +877,10 @@ extension MessageActionModel : Swift.Codable {
   @objc final public let amount: Swift.Double
   @objc final public let currency: Swift.String
   @objc final public let state: ZendeskSDKConversationKit.MessageActionBuyState
-  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, amount: Swift.Double, currency: Swift.String, state: ZendeskSDKConversationKit.MessageActionBuyState)
+  @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
+    @objc get
+  }
+  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, amount: Swift.Double, currency: Swift.String, state: ZendeskSDKConversationKit.MessageActionBuyState, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -839,15 +889,15 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKMessageActionBuyState) public enum MessageActionBuyState : Swift.Int, Swift.Codable {
   case offered
   case paid
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -875,9 +925,9 @@ extension MessageActionModel : Swift.Codable {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension TextFormField {
   @available(swift, obsoleted: 1.0)
@@ -897,16 +947,16 @@ extension TextFormField {
     @objc get
   }
   @objc override dynamic public init()
-  public init(from decoder: Swift.Decoder) throws
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKAuthenticationType) public enum AuthenticationType : Swift.Int, Swift.Codable {
   case sessionToken
   case jwt
   case unauthenticated
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }

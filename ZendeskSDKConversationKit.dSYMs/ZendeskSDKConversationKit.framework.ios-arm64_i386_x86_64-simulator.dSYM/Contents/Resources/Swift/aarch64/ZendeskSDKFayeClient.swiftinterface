@@ -1,0 +1,68 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKFayeClient
+import Foundation
+import Swift
+@_exported import ZendeskSDKFayeClient
+import ZendeskSDKLogger
+import ZendeskSDKSocketClient
+public struct FayeClientBuilder {
+  public init(with url: Swift.String)
+  public func build() throws -> ZendeskSDKFayeClient.FayeClient
+}
+public protocol FayeClientDelegate : AnyObject {
+  func didConnect(with client: ZendeskSDKFayeClient.FayeClient)
+  func didDisconnect(with client: ZendeskSDKFayeClient.FayeClient)
+  func didSubscribe(to channel: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
+  func didUnsubscribe(from channel: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
+  func didPublish(to channel: Swift.String, message: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
+  func didReceiveMessage(from channel: Swift.String, messageData: Foundation.Data, with client: ZendeskSDKFayeClient.FayeClient)
+  func didReceiveError(_ error: ZendeskSDKFayeClient.FayeClientError, with client: ZendeskSDKFayeClient.FayeClient)
+}
+public enum FayeClientInitError : Swift.Error {
+  case invalidURL
+  public static func == (a: ZendeskSDKFayeClient.FayeClientInitError, b: ZendeskSDKFayeClient.FayeClientInitError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum FayeClientError : Swift.Error {
+  case stringDeserialisationFailed(message: Swift.String)
+  case dataDecodeError(data: Foundation.Data)
+  case notConnected
+  case socketError(error: Swift.Error?)
+}
+extension FayeClientError : Swift.Equatable {
+  public static func == (lhs: ZendeskSDKFayeClient.FayeClientError, rhs: ZendeskSDKFayeClient.FayeClientError) -> Swift.Bool
+}
+public protocol FayeClient {
+  var delegate: ZendeskSDKFayeClient.FayeClientDelegate? { get set }
+  var clientId: Swift.String? { get }
+  var connectionState: ZendeskSDKFayeClient.FayeConnectionState { get }
+  var keepConnectionAlive: Swift.Bool { get set }
+  func connect(supportedConnectionTypes: [Swift.String]?, handshakeId: Swift.String?, connectId: Swift.String?)
+  func connect<T>(supportedConnectionTypes: [Swift.String]?, handshakeExt: T, handshakeId: Swift.String?, connectId: Swift.String?) where T : Swift.Encodable
+  func connect<T>(supportedConnectionTypes: [Swift.String]?, handshakeId: Swift.String?, connectExt: T, connectId: Swift.String?) where T : Swift.Encodable
+  func connect<T, S>(supportedConnectionTypes: [Swift.String]?, handshakeExt: T, handshakeId: Swift.String?, connectExt: S, connectId: Swift.String?) where T : Swift.Encodable, S : Swift.Encodable
+  func disconnect(id: Swift.String?)
+  func disconnect<T>(id: Swift.String?, ext: T) where T : Swift.Encodable
+  func subscribe(to channel: Swift.String, id: Swift.String?)
+  func subscribe<T>(to channel: Swift.String, id: Swift.String?, ext: T) where T : Swift.Encodable
+  func unsubscribe(from channel: Swift.String, id: Swift.String?)
+  func unsubscribe<T>(from channel: Swift.String, id: Swift.String?, ext: T) where T : Swift.Encodable
+  func publish<E>(to channel: Swift.String, data: E, id: Swift.String?) where E : Swift.Encodable
+  func publish<E, T>(to channel: Swift.String, data: E, id: Swift.String?, ext: T) where E : Swift.Encodable, T : Swift.Encodable
+}
+public enum FayeConnectionState : Swift.Equatable {
+  case disconnected
+  case connected
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: ZendeskSDKFayeClient.FayeConnectionState, b: ZendeskSDKFayeClient.FayeConnectionState) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension ZendeskSDKFayeClient.FayeClientInitError : Swift.Equatable {}
+extension ZendeskSDKFayeClient.FayeClientInitError : Swift.Hashable {}
+extension ZendeskSDKFayeClient.FayeConnectionState : Swift.Hashable {}
