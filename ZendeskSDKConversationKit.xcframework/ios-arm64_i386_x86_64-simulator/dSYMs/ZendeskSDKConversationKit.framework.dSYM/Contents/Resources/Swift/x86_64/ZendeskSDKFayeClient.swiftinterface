@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKFayeClient
 import Foundation
 import Swift
 @_exported import ZendeskSDKFayeClient
 import ZendeskSDKLogger
 import ZendeskSDKSocketClient
+import _Concurrency
 public struct FayeClientBuilder {
   public init(with url: Swift.String)
   public func build() throws -> ZendeskSDKFayeClient.FayeClient
@@ -33,7 +34,7 @@ public enum FayeClientError : Swift.Error {
   case notConnected
   case socketError(error: Swift.Error?)
 }
-extension FayeClientError : Swift.Equatable {
+extension ZendeskSDKFayeClient.FayeClientError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKFayeClient.FayeClientError, rhs: ZendeskSDKFayeClient.FayeClientError) -> Swift.Bool
 }
 public protocol FayeClient {
