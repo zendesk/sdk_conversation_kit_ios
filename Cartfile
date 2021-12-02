@@ -1,3 +1,3 @@
-github "zendesk/sdk_faye_client_ios" ~> 1.0.0
-github "zendesk/sdk_http_client_ios" ~> 1.0.0
-github "zendesk/sdk_storage_ios" ~> 1.0.0
+github "zendesk/sdk_faye_client_ios" ~> 0.4.2
+github "zendesk/sdk_http_client_ios" ~> 0.5.1
+github "zendesk/sdk_storage_ios" ~> 0.4.2
