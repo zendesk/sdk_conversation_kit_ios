@@ -515,19 +515,8 @@ SWIFT_PROTOCOL_NAMED("ConversationKitBuilderObjC")
 - (id <ZDKConversationKit> _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class ZDKUser;
-
-SWIFT_PROTOCOL_NAMED("ConversationKitObjCInternal")
-@protocol ZDKConversationKitInternal
-/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
-/// \param jwt The <code>User</code>’s <code>jwt</code>.
-///
-- (void)loginWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
-/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
-- (void)logoutWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
-@end
-
 @class ZDKConversationKitSettings;
+@class ZDKUser;
 
 SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @protocol ConversationKitShared
@@ -576,7 +565,7 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 enum ZDKConversationKitEvent : NSInteger;
 
 SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
-@protocol ZDKConversationKit <ZDKConversationKitInternal, ConversationKitShared>
+@protocol ZDKConversationKit <ConversationKitShared>
 /// Add a type of <code>AnyObject</code> to listen for <code>ZDKConversationKitEvent</code> updates.
 /// note:
 /// This does not cause a retain cycle.
@@ -637,8 +626,21 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param conversationId The identifier of the <code>Conversation</code> that the <code>Activity</code> will be sent
 ///
 - (void)sendConversationActivityWithActivity:(enum ZDKActivityType)activity conversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
+/// \param jwt The <code>User</code>’s <code>jwt</code>.
+///
+/// \param completion The <code>User</code> if successful, <code>Error</code> if not.
+///
+- (void)loginUserWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
+/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
+/// \param completion Nothing if successful, <code>Error</code> if not.
+///
+- (void)logoutUserWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to create a <code>Conversation</code> for the current <code>User</code>.
+/// \param completion The <code>Conversation</code> if successful, <code>Error</code> if not.
+///
+- (void)createConversationWithCompletion:(void (^ _Nullable)(ZDKConversation * _Nullable, NSError * _Nullable))completion;
 @end
-
 
 enum ZDKRegion : NSInteger;
 
@@ -1261,8 +1263,8 @@ SWIFT_CLASS_NAMED("User")
 @property (nonatomic, readonly, copy) NSString * _Nonnull surname;
 /// The <code>locale</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSString * _Nonnull locale;
-/// The external <code>userId</code> of the <code>User</code>
-@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+/// The <code>externalId</code> of the <code>User</code>
+@property (nonatomic, readonly, copy) NSString * _Nonnull externalId;
 /// The <code>conversations</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSArray<ZDKConversation *> * _Nonnull conversations;
 /// The <code>realtimeSettings</code> of the <code>User</code>
@@ -1890,19 +1892,8 @@ SWIFT_PROTOCOL_NAMED("ConversationKitBuilderObjC")
 - (id <ZDKConversationKit> _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class ZDKUser;
-
-SWIFT_PROTOCOL_NAMED("ConversationKitObjCInternal")
-@protocol ZDKConversationKitInternal
-/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
-/// \param jwt The <code>User</code>’s <code>jwt</code>.
-///
-- (void)loginWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
-/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
-- (void)logoutWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
-@end
-
 @class ZDKConversationKitSettings;
+@class ZDKUser;
 
 SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @protocol ConversationKitShared
@@ -1951,7 +1942,7 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 enum ZDKConversationKitEvent : NSInteger;
 
 SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
-@protocol ZDKConversationKit <ZDKConversationKitInternal, ConversationKitShared>
+@protocol ZDKConversationKit <ConversationKitShared>
 /// Add a type of <code>AnyObject</code> to listen for <code>ZDKConversationKitEvent</code> updates.
 /// note:
 /// This does not cause a retain cycle.
@@ -2012,8 +2003,21 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param conversationId The identifier of the <code>Conversation</code> that the <code>Activity</code> will be sent
 ///
 - (void)sendConversationActivityWithActivity:(enum ZDKActivityType)activity conversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
+/// \param jwt The <code>User</code>’s <code>jwt</code>.
+///
+/// \param completion The <code>User</code> if successful, <code>Error</code> if not.
+///
+- (void)loginUserWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
+/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
+/// \param completion Nothing if successful, <code>Error</code> if not.
+///
+- (void)logoutUserWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to create a <code>Conversation</code> for the current <code>User</code>.
+/// \param completion The <code>Conversation</code> if successful, <code>Error</code> if not.
+///
+- (void)createConversationWithCompletion:(void (^ _Nullable)(ZDKConversation * _Nullable, NSError * _Nullable))completion;
 @end
-
 
 enum ZDKRegion : NSInteger;
 
@@ -2636,8 +2640,8 @@ SWIFT_CLASS_NAMED("User")
 @property (nonatomic, readonly, copy) NSString * _Nonnull surname;
 /// The <code>locale</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSString * _Nonnull locale;
-/// The external <code>userId</code> of the <code>User</code>
-@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+/// The <code>externalId</code> of the <code>User</code>
+@property (nonatomic, readonly, copy) NSString * _Nonnull externalId;
 /// The <code>conversations</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSArray<ZDKConversation *> * _Nonnull conversations;
 /// The <code>realtimeSettings</code> of the <code>User</code>
@@ -3265,19 +3269,8 @@ SWIFT_PROTOCOL_NAMED("ConversationKitBuilderObjC")
 - (id <ZDKConversationKit> _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class ZDKUser;
-
-SWIFT_PROTOCOL_NAMED("ConversationKitObjCInternal")
-@protocol ZDKConversationKitInternal
-/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
-/// \param jwt The <code>User</code>’s <code>jwt</code>.
-///
-- (void)loginWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
-/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
-- (void)logoutWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
-@end
-
 @class ZDKConversationKitSettings;
+@class ZDKUser;
 
 SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @protocol ConversationKitShared
@@ -3326,7 +3319,7 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 enum ZDKConversationKitEvent : NSInteger;
 
 SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
-@protocol ZDKConversationKit <ZDKConversationKitInternal, ConversationKitShared>
+@protocol ZDKConversationKit <ConversationKitShared>
 /// Add a type of <code>AnyObject</code> to listen for <code>ZDKConversationKitEvent</code> updates.
 /// note:
 /// This does not cause a retain cycle.
@@ -3387,8 +3380,21 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param conversationId The identifier of the <code>Conversation</code> that the <code>Activity</code> will be sent
 ///
 - (void)sendConversationActivityWithActivity:(enum ZDKActivityType)activity conversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to authenticate a new user, or re-authenticate an existing user during a conversation.
+/// \param jwt The <code>User</code>’s <code>jwt</code>.
+///
+/// \param completion The <code>User</code> if successful, <code>Error</code> if not.
+///
+- (void)loginUserWith:(NSString * _Nonnull)jwt completion:(void (^ _Nullable)(ZDKUser * _Nullable, NSError * _Nullable))completion;
+/// Call to unauthenticate the current <code>User</code> and remove their associated information from storage.
+/// \param completion Nothing if successful, <code>Error</code> if not.
+///
+- (void)logoutUserWithCompletion:(void (^ _Nullable)(NSError * _Nullable))completion;
+/// Call to create a <code>Conversation</code> for the current <code>User</code>.
+/// \param completion The <code>Conversation</code> if successful, <code>Error</code> if not.
+///
+- (void)createConversationWithCompletion:(void (^ _Nullable)(ZDKConversation * _Nullable, NSError * _Nullable))completion;
 @end
-
 
 enum ZDKRegion : NSInteger;
 
@@ -4011,8 +4017,8 @@ SWIFT_CLASS_NAMED("User")
 @property (nonatomic, readonly, copy) NSString * _Nonnull surname;
 /// The <code>locale</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSString * _Nonnull locale;
-/// The external <code>userId</code> of the <code>User</code>
-@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+/// The <code>externalId</code> of the <code>User</code>
+@property (nonatomic, readonly, copy) NSString * _Nonnull externalId;
 /// The <code>conversations</code> of the <code>User</code>
 @property (nonatomic, readonly, copy) NSArray<ZDKConversation *> * _Nonnull conversations;
 /// The <code>realtimeSettings</code> of the <code>User</code>
