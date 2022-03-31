@@ -1006,6 +1006,10 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageStatus, "MessageStatus", open) {
   ZDKMessageStatusSent = 1,
 /// An attempt was made to send the <code>Message</code> to the server but it failed.
   ZDKMessageStatusFailed = 2,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue the file size exceeds the max file size.
+  ZDKMessageStatusExceedsMaxFileSize = 3,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue it is an unsupported file type.
+  ZDKMessageStatusFailedAttachmentNotSupported = 4,
 };
 
 /// Represents the different <code>Message</code> types in a <code>Conversation</code>.
@@ -2391,6 +2395,10 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageStatus, "MessageStatus", open) {
   ZDKMessageStatusSent = 1,
 /// An attempt was made to send the <code>Message</code> to the server but it failed.
   ZDKMessageStatusFailed = 2,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue the file size exceeds the max file size.
+  ZDKMessageStatusExceedsMaxFileSize = 3,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue it is an unsupported file type.
+  ZDKMessageStatusFailedAttachmentNotSupported = 4,
 };
 
 /// Represents the different <code>Message</code> types in a <code>Conversation</code>.
@@ -3776,6 +3784,10 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageStatus, "MessageStatus", open) {
   ZDKMessageStatusSent = 1,
 /// An attempt was made to send the <code>Message</code> to the server but it failed.
   ZDKMessageStatusFailed = 2,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue the file size exceeds the max file size.
+  ZDKMessageStatusExceedsMaxFileSize = 3,
+/// An attempt was made to send the <code>Message</code> to the server but it failed becasue it is an unsupported file type.
+  ZDKMessageStatusFailedAttachmentNotSupported = 4,
 };
 
 /// Represents the different <code>Message</code> types in a <code>Conversation</code>.
