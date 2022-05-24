@@ -20,6 +20,7 @@ public protocol FayeClientDelegate : AnyObject {
   func didReceiveMessage(from channel: Swift.String, messageData: Foundation.Data, with client: ZendeskSDKFayeClient.FayeClient)
   func didReceiveError(_ error: ZendeskSDKFayeClient.FayeClientError, with client: ZendeskSDKFayeClient.FayeClient)
   func didReceiveCancelled()
+  func didReceivePeerClosed()
 }
 public enum FayeClientInitError : Swift.Error {
   case invalidURL
