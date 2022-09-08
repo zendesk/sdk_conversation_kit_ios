@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZendeskSDKConversationKit"
-  s.version      = "1.3.0"
+  s.version      = "1.4.0"
   s.summary      = "ZendeskSDKConversationKit #{s.version.to_s}"
   s.homepage     = "https://developer.zendesk.com/documentation/zendesk-sdks/"
   s.license      = {
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/zendesk/sdk_conversation_kit_ios.git", :tag => s.version }
   s.vendored_frameworks = 'ZendeskSDKConversationKit.xcframework'
   s.dependency 'ZendeskSDKFayeClient', '~> 1.1.0'
-  s.dependency 'ZendeskSDKHTTPClient', '~> 0.6.0'
+  s.dependency 'ZendeskSDKHTTPClient', '~> 0.7.0'
   s.dependency 'ZendeskSDKStorage', '~> 0.4.4'
 end
