@@ -420,7 +420,11 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL OBJC_DESIGNATED_INITIALIZER;
+/// A boolean indicating if multi-convo is enabled
+@property (nonatomic) BOOL multiConvoEnabled;
+/// A boolean indicating if the end user is permitted to create more conversations
+@property (nonatomic) BOOL canUserCreateMoreConversations;
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL multiConvoEnabled:(BOOL)multiConvoEnabled canUserCreateMoreConversations:(BOOL)canUserCreateMoreConversations OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -1360,6 +1364,10 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventPersistedUserRetrieved = 10,
 /// Conversation read activity received from server for <code>conversationId</code>.
   ZDKConversationKitEventConversationReadReceived = 11,
+/// Current user has gained access to <code>Conversation</code>.
+  ZDKConversationKitEventConversationAdded = 12,
+/// Current user has lost access to <code>Conversation</code> with identifier.
+  ZDKConversationKitEventConversationRemoved = 13,
 };
 
 
@@ -1823,7 +1831,11 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL OBJC_DESIGNATED_INITIALIZER;
+/// A boolean indicating if multi-convo is enabled
+@property (nonatomic) BOOL multiConvoEnabled;
+/// A boolean indicating if the end user is permitted to create more conversations
+@property (nonatomic) BOOL canUserCreateMoreConversations;
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL multiConvoEnabled:(BOOL)multiConvoEnabled canUserCreateMoreConversations:(BOOL)canUserCreateMoreConversations OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -2763,6 +2775,10 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventPersistedUserRetrieved = 10,
 /// Conversation read activity received from server for <code>conversationId</code>.
   ZDKConversationKitEventConversationReadReceived = 11,
+/// Current user has gained access to <code>Conversation</code>.
+  ZDKConversationKitEventConversationAdded = 12,
+/// Current user has lost access to <code>Conversation</code> with identifier.
+  ZDKConversationKitEventConversationRemoved = 13,
 };
 
 

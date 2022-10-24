@@ -3,7 +3,7 @@ import PackageDescription
 let package = Package(
     name: "ZendeskSDKConversationKit",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v11)
     ],
     products: [
         .library(
@@ -19,7 +19,7 @@ let package = Package(
                  from: "1.1.0"),
         .package(name: "ZendeskSDKHTTPClient",
                  url: "https://github.com/zendesk/sdk_http_client_ios",
-                 from: "0.7.0"),
+                 from: "0.8.0"),
         .package(name: "ZendeskSDKStorage",
                  url: "https://github.com/zendesk/sdk_storage_ios",
                  from: "0.4.4")
