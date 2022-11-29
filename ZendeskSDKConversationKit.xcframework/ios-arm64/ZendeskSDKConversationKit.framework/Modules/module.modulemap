@@ -6,6 +6,6 @@ framework module ZendeskSDKConversationKit {
 }
 
 module ZendeskSDKConversationKit.Swift {
-    header "ZendeskSDKConversationKit-Swift.h"
-    requires objc
+  header "ZendeskSDKConversationKit-Swift.h"
+  requires objc
 }

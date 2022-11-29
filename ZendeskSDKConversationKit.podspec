@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZendeskSDKConversationKit"
-  s.version      = "1.5.0"
+  s.version      = "1.6.0"
   s.summary      = "ZendeskSDKConversationKit #{s.version.to_s}"
   s.homepage     = "https://developer.zendesk.com/documentation/zendesk-web-widget-sdks/sdks/ios/getting_started/"
   s.license      = {
@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
   s.author       = 'Zendesk'
   s.platform     = :ios, '11.0'
   s.requires_arc = true
-  s.swift_version = '5.7'
+  s.swift_version = '5.3'
   s.cocoapods_version = '>= 1.10.0'
   s.source       = { :git => "https://github.com/zendesk/sdk_conversation_kit_ios.git", :tag => s.version }
   s.vendored_frameworks = 'ZendeskSDKConversationKit.xcframework'
-  s.dependency 'ZendeskSDKFayeClient', '~> 1.1.0'
-  s.dependency 'ZendeskSDKHTTPClient', '~> 0.8.0'
-  s.dependency 'ZendeskSDKStorage', '~> 0.4.4'
+  s.dependency 'ZendeskSDKFayeClient', '~> 1.2.0'
+  s.dependency 'ZendeskSDKHTTPClient', '~> 0.9.0'
+  s.dependency 'ZendeskSDKStorage', '~> 0.5.0'
 end
