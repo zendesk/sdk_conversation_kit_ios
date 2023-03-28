@@ -19,10 +19,13 @@ let package = Package(
                  from: "1.2.0"),
         .package(name: "ZendeskSDKHTTPClient",
                  url: "https://github.com/zendesk/sdk_http_client_ios",
-                 from: "0.9.0"),
+                 from: "0.10.0"),
         .package(name: "ZendeskSDKStorage",
                  url: "https://github.com/zendesk/sdk_storage_ios",
-                 from: "0.5.0")
+                 from: "0.5.0"),
+        .package(name: "ZendeskSDKCoreUtilities",
+                 url: "https://github.com/zendesk/sdk_core_utilities_ios",
+                 from: "1.1.0")
     ],
     targets: [
         .binaryTarget(
@@ -34,7 +37,8 @@ let package = Package(
                     .target(name: "ZendeskSDKConversationKit"),
                     .product(name: "ZendeskSDKFayeClient", package: "ZendeskSDKFayeClient"),
                     .product(name: "ZendeskSDKHTTPClient", package: "ZendeskSDKHTTPClient"),
-                    .product(name: "ZendeskSDKStorage", package: "ZendeskSDKStorage")
+                    .product(name: "ZendeskSDKStorage", package: "ZendeskSDKStorage"),
+                    .product(name: "ZendeskSDKCoreUtilities", package: "ZendeskSDKCoreUtilities")
                 ],
                 path: "Sources")
     ]

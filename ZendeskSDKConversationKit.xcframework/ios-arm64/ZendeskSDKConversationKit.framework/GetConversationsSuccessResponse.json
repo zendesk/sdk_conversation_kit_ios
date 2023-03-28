@@ -1,0 +1,522 @@
+{
+   "settings": {
+      "realtime": {
+         "enabled": true,
+         "baseUrl": "https://api.smooch.io/faye",
+         "retryInterval": 15,
+         "maxConnectionAttempts": 5,
+         "connectionDelay": 0
+      },
+      "profile": {
+         "enabled": true,
+         "uploadInterval": 15
+      },
+      "typing": {
+         "enabled": true
+      }
+   },
+   "conversations": [
+      {
+         "_id": "86845c5c1e9487c79e7e8edc",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1668612638.726,
+         "lastUpdatedAt": 1668612638.726,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6375021b80aa8f4100414e4f",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1668612641.999
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "6375021e41055301034a7c29",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1668612638.726,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "6375021e41055301034a7c27",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "6375021e41055301034a7c28",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "_id": "2be92718d14f16ffaefdcfe3",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1668436756.393,
+         "lastUpdatedAt": 1668436756.393,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6372531180aa8f410075343a",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1668436756.956
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "63725314c107810103c723ce",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1668436756.393,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63725314c107810103c723cc",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63725314c107810103c723cd",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "_id": "b3c48bcb2fbefa3553ba4747",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1668436678.796,
+         "lastUpdatedAt": 1668436678.796,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6372526a80aa8f41000ad723",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1668436679.594
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:agentWorkspace"
+               },
+               "_id": "637252c61e45a101047736eb",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Malek Trabelsi",
+               "avatarUrl": "https://z3n-malek.zendesk.com/system/photos/1900096262933/IMG_0117_copy.jpg",
+               "type": "text",
+               "received": 1668436678.796,
+               "metadata": {
+                  "__zendesk_msg.id": "",
+                  "__zendesk_msg.agent.id": "agent:384593940858",
+                  "__zendesk_msg.source_type": "sunco_web"
+               },
+               "text": "some other test"
+            }
+         ]
+      },
+      {
+         "_id": "3498d839b882a60a305910b0",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1668436649.103,
+         "lastUpdatedAt": 1668436649.103,
+         "unreadCount": 1,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6372506280aa8f4100bfd35f",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 1,
+               "lastRead": 1668436094.936
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:agentWorkspace"
+               },
+               "_id": "637252a944da95010344faf8",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Malek Trabelsi",
+               "avatarUrl": "https://z3n-malek.zendesk.com/system/photos/1900096262933/IMG_0117_copy.jpg",
+               "type": "text",
+               "received": 1668436649.103,
+               "metadata": {
+                  "__zendesk_msg.agent.id": "agent:384593940858",
+                  "__zendesk_msg.source_type": "sunco_web",
+                  "__zendesk_msg.id": ""
+               },
+               "text": "test"
+            }
+         ]
+      },
+      {
+         "_id": "d21798736b1004fbfb23ce33",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1668436578.043,
+         "lastUpdatedAt": 1668436578.043,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6372525e80aa8f4100034cfd",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1668436578.952
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "637252624ad42b01042ee573",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1668436578.043,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "637252624ad42b01042ee571",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "637252624ad42b01042ee572",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "_id": "e1be19e064187ef52710d732",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1667831687.521,
+         "lastUpdatedAt": 1667831687.521,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6369178480aa8f410060fa42",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1667831687.951
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "63691787f836f40103d1d8e1",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1667831687.521,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63691787f836f40103d1d8df",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63691787f836f40103d1d8e0",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "_id": "1d0b47c3b00bdabdca3c531b",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1667831679.62,
+         "lastUpdatedAt": 1667831679.62,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6369173580aa8f41002d4907",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1667831680.081
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:agentWorkspace"
+               },
+               "_id": "6369177f0265de01037776be",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Malek Trabelsi",
+               "avatarUrl": "https://z3n-malek.zendesk.com/system/photos/1900096262933/IMG_0117_copy.jpg",
+               "type": "text",
+               "received": 1667831679.62,
+               "metadata": {
+                  "__zendesk_msg.id": "",
+                  "__zendesk_msg.agent.id": "agent:384593940858",
+                  "__zendesk_msg.source_type": "sunco_web"
+               },
+               "text": "hello"
+            }
+         ]
+      },
+      {
+         "_id": "9ea3f1463d25bd159a56b111",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1667831470.806,
+         "lastUpdatedAt": 1667831470.806,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "636916ab80aa8f4100d3dc80",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1667831471.056
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "636916ae9f8ce50104f2cd9a",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1667831470.806,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "636916ae9f8ce50104f2cd98",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "636916ae9f8ce50104f2cd99",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "_id": "19bd138fd038656dc1eda436",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1667831458.305,
+         "lastUpdatedAt": 1667831458.305,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6369163680aa8f4100888d1b",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1667831458.846
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:agentWorkspace"
+               },
+               "_id": "636916a2b80e420104fcb0ae",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Malek Trabelsi",
+               "avatarUrl": "https://z3n-malek.zendesk.com/system/photos/1900096262933/IMG_0117_copy.jpg",
+               "type": "text",
+               "received": 1667831458.305,
+               "metadata": {
+                  "__zendesk_msg.id": "",
+                  "__zendesk_msg.agent.id": "agent:384593940858",
+                  "__zendesk_msg.source_type": "sunco_web"
+               },
+               "text": "test"
+            }
+         ]
+      },
+      {
+         "_id": "af5df161a89cedb7c3038a8e",
+         "type": "personal",
+         "brandId": "360003302337",
+         "isDefault": false,
+         "appMakerLastRead": 1667831320.825,
+         "lastUpdatedAt": 1667831320.825,
+         "unreadCount": 0,
+         "status": "active",
+         "participants": [
+            {
+               "_id": "6369161580aa8f410072f233",
+               "appUserId": "45d1dc77875625e341777903",
+               "unreadCount": 0,
+               "lastRead": 1667831323.565
+            }
+         ],
+         "messages": [
+            {
+               "source": {
+                  "type": "zd:answerBot"
+               },
+               "_id": "63691618eaac730104525b0e",
+               "role": "appMaker",
+               "authorId": "00uf5we4m8bQgd4R70h7",
+               "name": "Answer Bot",
+               "avatarUrl": "https://static.zdassets.com/web_widget/latest/default_avatar.png",
+               "type": "text",
+               "received": 1667831320.825,
+               "text": "Or, talk to a human.",
+               "actions": [
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63691618eaac730104525b0c",
+                     "text": "Talk to a human",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHHRYG1NTD8ZHS2N1QQ"
+                  },
+                  {
+                     "type": "reply",
+                     "uri": "",
+                     "_id": "63691618eaac730104525b0d",
+                     "text": "form",
+                     "payload": "goto_node=01FSTSECTRP859CP6PZ6V1NDPG_01F9XNTGHJDXTQQP5CETAT8YSH"
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "conversationsPagination": {
+      "hasMore": true
+   },
+   "appUsers": {},
+   "appUser": {
+      "givenName": "Malek",
+      "email": "Malek.isims88@gmail.com",
+      "locale": "fr-US",
+      "signedUpAt": "2022-09-27T15:24:30.424Z",
+      "_id": "45d1dc77875625e341777903",
+      "conversationStarted": true,
+      "clients": [
+         {
+            "_id": "633315ae29c5dd00f3693f15",
+            "id": "EF28CB93-AB77-4FF1-A42D-06DCAFCA0F8E",
+            "deviceId": "EF28CB93-AB77-4FF1-A42D-06DCAFCA0F8E",
+            "platform": "ios",
+            "status": "active",
+            "blocked": false,
+            "active": true,
+            "integrationId": "60e430a496878800d4f7ba8b",
+            "lastSeen": "2022-11-14T14:36:46.753Z",
+            "info": {
+               "vendor": "Native Messaging",
+               "os": "iOS",
+               "locale": "fr-US",
+               "appName": "SampleApp",
+               "osVersion": "16.0",
+               "sdkVersion": "1.5.0",
+               "installer": "Unknown",
+               "devicePlatform": "arm64",
+               "buildNumber": "1",
+               "carrier": "",
+               "appId": "com.zendesk.NativeMessagingSampleApp"
+            },
+            "raw": {
+               "vendor": "Native Messaging",
+               "os": "iOS",
+               "locale": "fr-US",
+               "appName": "SampleApp",
+               "osVersion": "16.0",
+               "sdkVersion": "1.5.0",
+               "installer": "Unknown",
+               "devicePlatform": "arm64",
+               "buildNumber": "1",
+               "carrier": "",
+               "appId": "com.zendesk.NativeMessagingSampleApp"
+            },
+            "appVersion": "1.5.0",
+            "primary": true
+         }
+      ],
+      "pendingClients": [],
+      "properties": {},
+      "hasPaymentInfo": false
+   }
+}
