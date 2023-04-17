@@ -860,6 +860,7 @@ SWIFT_PROTOCOL_NAMED("Field")
 @end
 
 
+/// Form Field used for email input
 SWIFT_CLASS_NAMED("EmailFormField")
 @interface ZDKEmailFormField : NSObject <ZDKField>
 /// The field type.
@@ -923,6 +924,7 @@ SWIFT_CLASS_NAMED("FileMessageContent")
 @end
 
 
+/// <code>Form</code> related <code>MessageContent</code>. Used to display an unsubmitted form.
 SWIFT_CLASS_NAMED("FormMessageContent")
 @interface ZDKFormMessageContent : NSObject <ZDKMessageContent>
 /// The id of the <code>Message</code>
@@ -946,6 +948,7 @@ SWIFT_CLASS_NAMED("FormMessageContent")
 @end
 
 
+/// <code>FormResponse</code> related <code>MessageContent</code>. Used to display a submitted form.
 SWIFT_CLASS_NAMED("FormResponseMessageContent")
 @interface ZDKFormResponseMessageContent : NSObject <ZDKMessageContent>
 /// The type  of the <code>Message</code>.
@@ -1166,6 +1169,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageType, "MessageType", open) {
 };
 
 
+/// <code>Option</code> model used for<code>Form</code> <code>Message</code> types, when the input <code>type</code> is <code>select</code>.
 SWIFT_CLASS_NAMED("Option")
 @interface ZDKOption : NSObject
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
@@ -1291,6 +1295,7 @@ SWIFT_CLASS_NAMED("ReplyAction")
 @end
 
 
+/// Form Field that takes in generic user input
 SWIFT_CLASS_NAMED("SelectFormField")
 @interface ZDKSelectFormField : NSObject <ZDKField>
 /// The field type.
@@ -1320,10 +1325,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
-
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
+
 
 
 SWIFT_CLASS_NAMED("ShareAction")
@@ -1345,6 +1350,7 @@ SWIFT_CLASS_NAMED("ShareAction")
 @end
 
 
+/// Form Field that takes in generic user input
 SWIFT_CLASS_NAMED("TextFormField")
 @interface ZDKTextFormField : NSObject <ZDKField>
 /// The field type.
@@ -1374,11 +1380,14 @@ SWIFT_CLASS_NAMED("TextFormField")
 
 
 @interface ZDKTextFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
+/// The minimum allowed length for the response for a field of type text.
 @property (nonatomic, readonly) NSInteger minSizeObjc;
+/// The maximum allowed length for the response for a field of type text.
 @property (nonatomic, readonly) NSInteger maxSizeObjc;
 @end
 
 
+/// Text related <code>MessageContent</code>
 SWIFT_CLASS_NAMED("TextMessageContent")
 @interface ZDKTextMessageContent : NSObject <ZDKMessageContent>
 /// The type of the <code>Message</code>.
@@ -1400,7 +1409,6 @@ SWIFT_CLASS_NAMED("TextMessageContent")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 
 SWIFT_CLASS_NAMED("UnsupportedMessageContent")

@@ -641,7 +641,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -6733,6 +6734,13 @@
       },
       {
         "kind": "Import",
+        "name": "ZendeskSDKCoreUtilities",
+        "printedName": "ZendeskSDKCoreUtilities",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -7750,6 +7758,13 @@
       },
       {
         "kind": "Import",
+        "name": "ZendeskSDKCoreUtilities",
+        "printedName": "ZendeskSDKCoreUtilities",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -8140,6 +8155,13 @@
         "kind": "Import",
         "name": "ZendeskSDKHTTPClient",
         "printedName": "ZendeskSDKHTTPClient",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKCoreUtilities",
+        "printedName": "ZendeskSDKCoreUtilities",
         "declKind": "Import",
         "moduleName": "ZendeskSDKConversationKit"
       },
@@ -15855,7 +15877,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "hasMissingDesignatedInitializers": true,
@@ -22234,7 +22257,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "hasMissingDesignatedInitializers": true,
@@ -24992,7 +25016,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -28904,7 +28929,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -32211,7 +32237,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -33564,16 +33591,6 @@
             "usr": "s:SE",
             "mangledName": "$sSE"
           }
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "ZendeskSDKConversationKit",
-        "declAttributes": [
-          "RawDocComment"
         ]
       },
       {
@@ -36195,7 +36212,8 @@
         "declAttributes": [
           "Final",
           "AccessControl",
-          "ObjC"
+          "ObjC",
+          "RawDocComment"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
         "superclassNames": [
@@ -37073,28 +37091,28 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Conversation.swift",
       "kind": "Array",
-      "offset": 2910,
+      "offset": 2878,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Conversation.swift",
       "kind": "Array",
-      "offset": 3069,
+      "offset": 3019,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Conversation.swift",
       "kind": "Array",
-      "offset": 3117,
+      "offset": 3061,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Conversation.swift",
       "kind": "BooleanLiteral",
-      "offset": 3163,
+      "offset": 3101,
       "length": 5,
       "value": "false"
     },
@@ -37332,7 +37350,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/AppRESTClient\/AppRESTClient.swift",
       "kind": "Array",
-      "offset": 1454,
+      "offset": 1485,
       "length": 2,
       "value": "[]"
     },
@@ -37402,7 +37420,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/IntegrationRESTClient\/IntegrationRESTClient.swift",
       "kind": "Array",
-      "offset": 1341,
+      "offset": 1372,
       "length": 2,
       "value": "[]"
     },
@@ -37423,7 +37441,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationsList.swift",
       "kind": "BooleanLiteral",
-      "offset": 972,
+      "offset": 970,
       "length": 5,
       "value": "false"
     },
@@ -37437,7 +37455,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/UserRESTClient.swift",
       "kind": "Array",
-      "offset": 1629,
+      "offset": 1660,
       "length": 2,
       "value": "[]"
     },
@@ -37703,14 +37721,14 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Config.swift",
       "kind": "BooleanLiteral",
-      "offset": 1198,
+      "offset": 1158,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Config.swift",
       "kind": "BooleanLiteral",
-      "offset": 1266,
+      "offset": 1204,
       "length": 5,
       "value": "false"
     },
