@@ -346,20 +346,23 @@ SWIFT_CLASS_NAMED("Author")
 ///   <li>
 ///     Matches <code>User.id</code> if <code>type</code> is <code>AuthorType.user</code>.
 ///   </li>
+///   <li>
+///     Matches the <code>id</code> of the account that owns the app If <code>type</code> is <code>AuthorType.business</code>. This means that messages
+///     sent by Answer Bot and agents will have the same <code>id</code>.
+///   </li>
 /// </ul>
-@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
 /// The <code>AuthorType</code> of the <code>Author</code>.
 @property (nonatomic, readonly) enum ZDKAuthorType type;
 /// The name to be displayed for the <code>Author</code>.
 @property (nonatomic, readonly, copy) NSString * _Nullable displayName;
 /// The url of the avatar ot be displayed for the <code>Author</code>.
 @property (nonatomic, copy) NSString * _Nullable avatarURL;
-- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId type:(enum ZDKAuthorType)type displayName:(NSString * _Nullable)displayName avatarURL:(NSString * _Nullable)avatarURL OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKAuthorType)type displayName:(NSString * _Nullable)displayName avatarURL:(NSString * _Nullable)avatarURL OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
 ///
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -574,17 +577,11 @@ enum ZDKVisitType : NSInteger;
 SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @protocol ConversationKitShared
 /// Current <code>UUID</code> to identify the host app install
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, copy) NSString * _Nullable clientId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull clientId;
 /// Current <code>Config</code> of <code>ConversationKit</code>.
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, strong) ZDKConfig * _Nullable config;
+@property (nonatomic, readonly, strong) ZDKConfig * _Nonnull config;
 /// Current <code>ConversationKitSettings</code>.
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, strong) ZDKConversationKitSettings * _Nullable settings;
+@property (nonatomic, readonly, strong) ZDKConversationKitSettings * _Nonnull settings;
 /// Current <code>User</code> if it exists.
 @property (nonatomic, readonly, strong) ZDKUser * _Nullable currentUser;
 /// Remove a type of <code>AnyObject</code> from listening to <code>ConversationKitEvent</code> updates.
@@ -593,12 +590,6 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 /// \param observer Object to remove from observing events.
 ///
 - (void)removeEventObserver:(id _Nonnull)observer;
-/// Setup ConversationKit with the given <code>ConversationKitSettings</code>, and <code>Config</code>
-/// \param settings <code>ConversationKitSettings</code> that includes the necessary <code>integrationId</code>.
-///
-/// \param config <code>Config</code> for the app integration
-///
-- (void)setupWith:(ZDKConversationKitSettings * _Nonnull)settings config:(ZDKConfig * _Nonnull)config;
 /// Call to pause the realtime connection that <code>ConversationKit</code> has with the backend.
 /// note:
 /// After this is called, no updates will be received from the server.
@@ -658,15 +649,6 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param closure Closure to receive events on.
 ///
 - (void)addEventObserver:(id _Nonnull)observer closure:(void (^ _Nullable)(enum ZDKConversationKitEvent, id _Nullable))closure;
-/// Call to initially setup the SDK with the given <code>ConversationKitSettings</code>
-/// note:
-/// If the SDK is already setup this call will result in an <code>Error</code>.
-/// If this call fails, it is necessary to retry until it succeeds to be able to use the SDK.
-/// \param settings <code>ConversationKitSettings</code> that includes the necessary <code>integrationId</code>.
-///
-/// \param completion <code>Config</code> for the app integration if successful, <code>Error</code> if not.
-///
-- (void)setupWith:(ZDKConversationKitSettings * _Nonnull)settings completion:(void (^ _Nullable)(ZDKConfig * _Nullable, NSError * _Nullable))completion;
 /// Call to create an Anonymous <code>ZDKUser</code>. This call will trigger a network.
 /// note:
 /// If the <code>givenName</code> and <code>surname</code> are empty, an anonymous user with a random name will be created.
@@ -826,7 +808,7 @@ SWIFT_CLASS_NAMED("DefaultConversationKitBuilder")
 
 
 @interface ZDKDefaultConversationKitBuilder (SWIFT_EXTENSION(ZendeskSDKConversationKit))
-- (id <ZDKConversationKit> _Nonnull)buildWithCallbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
+- (id <ZDKConversationKit> _Nonnull)buildWith:(ZDKConversationKitSettings * _Nonnull)settings config:(ZDKConfig * _Nonnull)config callbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
 @end
 
 enum ZDKFieldType : NSInteger;
@@ -1933,20 +1915,23 @@ SWIFT_CLASS_NAMED("Author")
 ///   <li>
 ///     Matches <code>User.id</code> if <code>type</code> is <code>AuthorType.user</code>.
 ///   </li>
+///   <li>
+///     Matches the <code>id</code> of the account that owns the app If <code>type</code> is <code>AuthorType.business</code>. This means that messages
+///     sent by Answer Bot and agents will have the same <code>id</code>.
+///   </li>
 /// </ul>
-@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
 /// The <code>AuthorType</code> of the <code>Author</code>.
 @property (nonatomic, readonly) enum ZDKAuthorType type;
 /// The name to be displayed for the <code>Author</code>.
 @property (nonatomic, readonly, copy) NSString * _Nullable displayName;
 /// The url of the avatar ot be displayed for the <code>Author</code>.
 @property (nonatomic, copy) NSString * _Nullable avatarURL;
-- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId type:(enum ZDKAuthorType)type displayName:(NSString * _Nullable)displayName avatarURL:(NSString * _Nullable)avatarURL OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKAuthorType)type displayName:(NSString * _Nullable)displayName avatarURL:(NSString * _Nullable)avatarURL OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
 ///
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2161,17 +2146,11 @@ enum ZDKVisitType : NSInteger;
 SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @protocol ConversationKitShared
 /// Current <code>UUID</code> to identify the host app install
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, copy) NSString * _Nullable clientId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull clientId;
 /// Current <code>Config</code> of <code>ConversationKit</code>.
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, strong) ZDKConfig * _Nullable config;
+@property (nonatomic, readonly, strong) ZDKConfig * _Nonnull config;
 /// Current <code>ConversationKitSettings</code>.
-/// note:
-/// This will be only available after successful <code>setup(with:result)</code>.
-@property (nonatomic, readonly, strong) ZDKConversationKitSettings * _Nullable settings;
+@property (nonatomic, readonly, strong) ZDKConversationKitSettings * _Nonnull settings;
 /// Current <code>User</code> if it exists.
 @property (nonatomic, readonly, strong) ZDKUser * _Nullable currentUser;
 /// Remove a type of <code>AnyObject</code> from listening to <code>ConversationKitEvent</code> updates.
@@ -2180,12 +2159,6 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 /// \param observer Object to remove from observing events.
 ///
 - (void)removeEventObserver:(id _Nonnull)observer;
-/// Setup ConversationKit with the given <code>ConversationKitSettings</code>, and <code>Config</code>
-/// \param settings <code>ConversationKitSettings</code> that includes the necessary <code>integrationId</code>.
-///
-/// \param config <code>Config</code> for the app integration
-///
-- (void)setupWith:(ZDKConversationKitSettings * _Nonnull)settings config:(ZDKConfig * _Nonnull)config;
 /// Call to pause the realtime connection that <code>ConversationKit</code> has with the backend.
 /// note:
 /// After this is called, no updates will be received from the server.
@@ -2245,15 +2218,6 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param closure Closure to receive events on.
 ///
 - (void)addEventObserver:(id _Nonnull)observer closure:(void (^ _Nullable)(enum ZDKConversationKitEvent, id _Nullable))closure;
-/// Call to initially setup the SDK with the given <code>ConversationKitSettings</code>
-/// note:
-/// If the SDK is already setup this call will result in an <code>Error</code>.
-/// If this call fails, it is necessary to retry until it succeeds to be able to use the SDK.
-/// \param settings <code>ConversationKitSettings</code> that includes the necessary <code>integrationId</code>.
-///
-/// \param completion <code>Config</code> for the app integration if successful, <code>Error</code> if not.
-///
-- (void)setupWith:(ZDKConversationKitSettings * _Nonnull)settings completion:(void (^ _Nullable)(ZDKConfig * _Nullable, NSError * _Nullable))completion;
 /// Call to create an Anonymous <code>ZDKUser</code>. This call will trigger a network.
 /// note:
 /// If the <code>givenName</code> and <code>surname</code> are empty, an anonymous user with a random name will be created.
@@ -2413,7 +2377,7 @@ SWIFT_CLASS_NAMED("DefaultConversationKitBuilder")
 
 
 @interface ZDKDefaultConversationKitBuilder (SWIFT_EXTENSION(ZendeskSDKConversationKit))
-- (id <ZDKConversationKit> _Nonnull)buildWithCallbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
+- (id <ZDKConversationKit> _Nonnull)buildWith:(ZDKConversationKitSettings * _Nonnull)settings config:(ZDKConfig * _Nonnull)config callbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
 @end
 
 enum ZDKFieldType : NSInteger;
