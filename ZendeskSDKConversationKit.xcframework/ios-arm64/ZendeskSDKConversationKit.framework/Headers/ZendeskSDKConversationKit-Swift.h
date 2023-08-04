@@ -459,7 +459,9 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic) BOOL multiConvoEnabled SWIFT_DEPRECATED_MSG("\n        This property exists for backwards-compatability only, and will         be removed in an upcoming ConversationKit version. This property         has been moved to `FeatureFlagManager.swift`.\n        ");
+@property (nonatomic) BOOL canUserCreateMoreConversations SWIFT_DEPRECATED_MSG("\n        This property exists for backwards-compatability only, and will         be removed in an upcoming ConversationKit version. This property         has been moved to `FeatureFlagManager.swift`.\n        ");
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL multiConvoEnabled:(BOOL)multiConvoEnabled canUserCreateMoreConversations:(BOOL)canUserCreateMoreConversations OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -553,6 +555,9 @@ SWIFT_CLASS_NAMED("Conversation")
 @property (nonatomic, readonly, strong) ZDKActivity * _Nullable activity;
 /// The status of the <code>Conversation</code>
 @property (nonatomic, readonly) enum ZDKConversationStatus status;
+/// This property exists for backwards-compatability only, and will be removed in an upcoming ConversationKit version.
+/// Use the other init method that includes metadata.
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKConversationType)type isDefault:(BOOL)isDefault displayName:(NSString * _Nullable)displayName displayDescription:(NSString * _Nullable)displayDescription iconURL:(NSString * _Nullable)iconURL business:(NSArray<NSString *> * _Nonnull)business businessLastRead:(NSDate * _Nullable)businessLastRead lastUpdatedAt:(NSDate * _Nullable)lastUpdatedAt participants:(NSArray<ZDKParticipant *> * _Nonnull)participants messages:(NSArray<ZDKMessage *> * _Nonnull)messages hasPrevious:(BOOL)hasPrevious myself:(ZDKParticipant * _Nullable)myself activity:(ZDKActivity * _Nullable)activity status:(enum ZDKConversationStatus)status OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKConversationType)type isDefault:(BOOL)isDefault displayName:(NSString * _Nullable)displayName displayDescription:(NSString * _Nullable)displayDescription iconURL:(NSString * _Nullable)iconURL business:(NSArray<NSString *> * _Nonnull)business businessLastRead:(NSDate * _Nullable)businessLastRead lastUpdatedAt:(NSDate * _Nullable)lastUpdatedAt metadata:(NSDictionary<NSString *, NSObject *> * _Nullable)metadata participants:(NSArray<ZDKParticipant *> * _Nonnull)participants messages:(NSArray<ZDKMessage *> * _Nonnull)messages hasPrevious:(BOOL)hasPrevious myself:(ZDKParticipant * _Nullable)myself activity:(ZDKActivity * _Nullable)activity status:(enum ZDKConversationStatus)status OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
