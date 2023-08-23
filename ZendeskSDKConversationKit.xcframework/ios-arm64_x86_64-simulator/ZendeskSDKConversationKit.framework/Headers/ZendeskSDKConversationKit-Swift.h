@@ -570,6 +570,7 @@ SWIFT_CLASS_NAMED("Conversation")
 
 
 
+
 @protocol ZDKConversationKit;
 
 /// Type conforming to <code>ConversationKitBuilderObjC</code> provide methods which vend concrete types of <code>ConversationKitObjC</code>
@@ -1337,10 +1338,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
+
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
-
 
 
 SWIFT_CLASS_NAMED("ShareAction")
@@ -2169,6 +2170,7 @@ SWIFT_CLASS_NAMED("Conversation")
 
 
 
+
 @protocol ZDKConversationKit;
 
 /// Type conforming to <code>ConversationKitBuilderObjC</code> provide methods which vend concrete types of <code>ConversationKitObjC</code>
@@ -2936,10 +2938,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
+
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
-
 
 
 SWIFT_CLASS_NAMED("ShareAction")
