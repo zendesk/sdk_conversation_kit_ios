@@ -459,9 +459,7 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
-@property (nonatomic) BOOL multiConvoEnabled SWIFT_DEPRECATED_MSG("\n        This property exists for backwards-compatability only, and will         be removed in an upcoming ConversationKit version. This property         has been moved to `FeatureFlagManager.swift`.\n        ");
-@property (nonatomic) BOOL canUserCreateMoreConversations SWIFT_DEPRECATED_MSG("\n        This property exists for backwards-compatability only, and will         be removed in an upcoming ConversationKit version. This property         has been moved to `FeatureFlagManager.swift`.\n        ");
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL multiConvoEnabled:(BOOL)multiConvoEnabled canUserCreateMoreConversations:(BOOL)canUserCreateMoreConversations OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -1548,13 +1546,12 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventLogoutResult = 10,
 /// The <code>User</code> has been retrieved from storage.
   ZDKConversationKitEventPersistedUserRetrieved = 11,
-  ZDKConversationKitEventConversationReadReceived = 12,
 /// Current user has gained access to <code>Conversation</code>.
-  ZDKConversationKitEventConversationAdded = 13,
+  ZDKConversationKitEventConversationAdded = 12,
 /// Current user has lost access to <code>Conversation</code> with identifier.
-  ZDKConversationKitEventConversationRemoved = 14,
+  ZDKConversationKitEventConversationRemoved = 13,
 /// A <code>ProactiveMessage</code> event has occurred.
-  ZDKConversationKitEventProactiveMessageStatusChanged = 15,
+  ZDKConversationKitEventProactiveMessageStatusChanged = 14,
 };
 
 
