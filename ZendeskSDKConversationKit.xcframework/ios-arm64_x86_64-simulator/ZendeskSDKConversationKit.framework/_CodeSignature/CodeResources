@@ -18,11 +18,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		d7zOne/vM58CAtzk06VvSCmpVOw=
+		Wig0DhPC0Zsyo2kSCecwgIqC7Xw=
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		5ZMMTzG2VW8p1gX+MkWS7RnutK0=
+		SEiZg7geWQqNbGa4up8A9AYfNio=
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		NkAcTzxO716JaYqMlJi/OAgPzgQ=
+		QWIiv4fVbdYJpvDthOI0SgLtjz0=
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		5ZMMTzG2VW8p1gX+MkWS7RnutK0=
+		SEiZg7geWQqNbGa4up8A9AYfNio=
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BkP8BJVVK/aOKOwhO4VdpffBTkw=
+		yLNBFqJZ5UFwoR1TqZeL52FmbQ4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -92,7 +92,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			p6r8996Hl0dTNgIbGPLvUw1aFa6akGRYdi5Cr2LFRDA=
+			jO2+9cTHrGQiM702DzhtmZvrTy/pR0WHb6PNnVUAXG4=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -120,14 +120,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BrAImGHe3ZaVBJRBUqwOUlNPTRnKTSaWhiodUs5bhyM=
+			UA0eMTvY5Fx1h7h/x8f7K1nudi6ldMtsWn+x8pvRq+w=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			p6r8996Hl0dTNgIbGPLvUw1aFa6akGRYdi5Cr2LFRDA=
+			jO2+9cTHrGQiM702DzhtmZvrTy/pR0WHb6PNnVUAXG4=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -155,7 +155,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aMs17RrqJVKHUoKxNvKzcR41Vv7j14Dy5ByKESJo2uE=
+			kViS+DoPeYmWo1Cn7CjEksW096GrTuEgnccIc9RBZT8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
