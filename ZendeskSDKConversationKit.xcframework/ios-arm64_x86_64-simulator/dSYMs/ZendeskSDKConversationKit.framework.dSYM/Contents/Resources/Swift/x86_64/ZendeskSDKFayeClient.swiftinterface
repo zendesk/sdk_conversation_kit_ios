@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKFayeClient
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -9,18 +9,19 @@ import ZendeskSDKLogger
 import ZendeskSDKSocketClient
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 public struct FayeClientBuilder {
   public init(with url: Swift.String)
-  public func build() throws -> ZendeskSDKFayeClient.FayeClient
+  public func build() throws -> any ZendeskSDKFayeClient.FayeClient
 }
 public protocol FayeClientDelegate : AnyObject {
-  func didConnect(with client: ZendeskSDKFayeClient.FayeClient)
-  func didDisconnect(with client: ZendeskSDKFayeClient.FayeClient)
-  func didSubscribe(to channel: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
-  func didUnsubscribe(from channel: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
-  func didPublish(to channel: Swift.String, message: Swift.String, with client: ZendeskSDKFayeClient.FayeClient)
-  func didReceiveMessage(from channel: Swift.String, messageData: Foundation.Data, with client: ZendeskSDKFayeClient.FayeClient)
-  func didReceiveError(_ error: ZendeskSDKFayeClient.FayeClientError, with client: ZendeskSDKFayeClient.FayeClient)
+  func didConnect(with client: any ZendeskSDKFayeClient.FayeClient)
+  func didDisconnect(with client: any ZendeskSDKFayeClient.FayeClient)
+  func didSubscribe(to channel: Swift.String, with client: any ZendeskSDKFayeClient.FayeClient)
+  func didUnsubscribe(from channel: Swift.String, with client: any ZendeskSDKFayeClient.FayeClient)
+  func didPublish(to channel: Swift.String, message: Swift.String, with client: any ZendeskSDKFayeClient.FayeClient)
+  func didReceiveMessage(from channel: Swift.String, messageData: Foundation.Data, with client: any ZendeskSDKFayeClient.FayeClient)
+  func didReceiveError(_ error: ZendeskSDKFayeClient.FayeClientError, with client: any ZendeskSDKFayeClient.FayeClient)
   func didReceiveCancelled()
   func didReceivePeerClosed()
 }
@@ -36,13 +37,13 @@ public enum FayeClientError : Swift.Error {
   case stringDeserialisationFailed(message: Swift.String)
   case dataDecodeError(data: Foundation.Data)
   case notConnected
-  case socketError(error: Swift.Error?)
+  case socketError(error: (any Swift.Error)?)
 }
 extension ZendeskSDKFayeClient.FayeClientError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKFayeClient.FayeClientError, rhs: ZendeskSDKFayeClient.FayeClientError) -> Swift.Bool
 }
 public protocol FayeClient {
-  var delegate: ZendeskSDKFayeClient.FayeClientDelegate? { get set }
+  var delegate: (any ZendeskSDKFayeClient.FayeClientDelegate)? { get set }
   var clientId: Swift.String? { get }
   var connectionState: ZendeskSDKFayeClient.FayeConnectionState { get }
   var keepConnectionAlive: Swift.Bool { get set }

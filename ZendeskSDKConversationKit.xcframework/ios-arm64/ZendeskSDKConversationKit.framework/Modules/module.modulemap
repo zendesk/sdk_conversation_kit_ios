@@ -1,7 +1,7 @@
 framework module ZendeskSDKConversationKit {
   umbrella header "ZendeskSDKConversationKit.h"
-
   export *
+
   module * { export * }
 }
 
