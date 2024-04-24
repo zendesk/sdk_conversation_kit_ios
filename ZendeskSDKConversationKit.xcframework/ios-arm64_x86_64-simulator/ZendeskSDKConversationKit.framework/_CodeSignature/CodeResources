@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0DXoM+HYNxqhuGLEd/oYPg30h3k=
+		0TTsfVqKdXqoJDFWanuasOYZz/w=
 		</data>
 		<key>Modules/ZendeskSDKConversationKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -63,6 +63,10 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		1A30k0Y282U10PQyKuvlqhDJiCE=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		x8OSduvNEZnEiC0Cwt2ElqWEqsE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -163,6 +167,13 @@
 			<key>hash2</key>
 			<data>
 			Iw4ha8YVwkKmMPB+uyUi3WazuibNyn81Ye4dhEhwwh4=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			++dRAyp7mI/fCp6lEeupDQOaAOa99Mr/Q2xKk8fsVMM=
 			</data>
 		</dict>
 	</dict>
