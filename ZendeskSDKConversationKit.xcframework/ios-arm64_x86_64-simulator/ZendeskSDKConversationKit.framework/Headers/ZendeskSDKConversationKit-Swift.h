@@ -1154,6 +1154,7 @@ SWIFT_CLASS_NAMED("Message")
 
 
 
+
 @interface ZDKMessage (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 /// Returns <code>true</code> if the message originated from given <code>Participant</code>
 - (BOOL)isAuthoredBy:(ZDKParticipant * _Nullable)participant SWIFT_WARN_UNUSED_RESULT;
@@ -1386,10 +1387,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
-
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
+
 
 
 SWIFT_CLASS_NAMED("ShareAction")
@@ -1531,6 +1532,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKVisitType, "VisitType", open) {
   ZDKVisitTypeRepeat = 1,
 };
 
+enum ZDKWebViewActionSize : NSInteger;
 
 SWIFT_CLASS_NAMED("WebViewAction")
 @interface ZDKWebViewAction : NSObject <ZDKMessageAction>
@@ -1548,6 +1550,10 @@ SWIFT_CLASS_NAMED("WebViewAction")
 @property (nonatomic, readonly, copy) NSString * _Nonnull fallback;
 /// The metadata of this action
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSObject *> * _Nullable metadata;
+/// A flag indicating if the <code>webview</code> should open on receive
+@property (nonatomic, readonly) BOOL openOnReceive;
+/// The size of the webview
+@property (nonatomic, readonly) enum ZDKWebViewActionSize size;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
@@ -1557,6 +1563,12 @@ SWIFT_CLASS_NAMED("WebViewAction")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, ZDKWebViewActionSize, "WebViewActionSize", open) {
+  ZDKWebViewActionSizeFull = 0,
+  ZDKWebViewActionSizeTall = 1,
+  ZDKWebViewActionSizeCompact = 2,
+};
 
 
 /// Wrapper object for Obj-C to return the associated types of the <code>newActivity</code> and <code>activityReceived</code> events.
@@ -1602,6 +1614,8 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventConversationRemoved = 13,
 /// A <code>ProactiveMessage</code> event has occurred.
   ZDKConversationKitEventProactiveMessageStatusChanged = 14,
+/// A new message with a webview action <code>openOnReceive</code> has occurred
+  ZDKConversationKitEventOpenWebViewMessageReceived = 15,
 };
 
 
@@ -1623,6 +1637,20 @@ SWIFT_CLASS("_TtC25ZendeskSDKConversationKit15ZDKMessageEvent")
 @property (nonatomic, readonly, strong) ZDKMessage * _Nonnull message;
 /// The identifier of the <code>Conversation</code> that the messages belong to.
 @property (nonatomic, readonly, copy) NSString * _Nonnull conversationId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// A new message with a webview action <code>openOnReceive</code> has occurred
+SWIFT_CLASS("_TtC25ZendeskSDKConversationKit29ZDKOpenWebViewMessageReceived")
+@interface ZDKOpenWebViewMessageReceived : NSObject
+/// The url <code>String</code> of the Conversation Extension that needs to be opened.
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+/// The identifier of the <code>Conversation</code> that the messages belong to.
+@property (nonatomic, readonly, copy) NSString * _Nonnull conversationId;
+/// The size of the webview
+@property (nonatomic, readonly) enum ZDKWebViewActionSize size;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2814,6 +2842,7 @@ SWIFT_CLASS_NAMED("Message")
 
 
 
+
 @interface ZDKMessage (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 /// Returns <code>true</code> if the message originated from given <code>Participant</code>
 - (BOOL)isAuthoredBy:(ZDKParticipant * _Nullable)participant SWIFT_WARN_UNUSED_RESULT;
@@ -3046,10 +3075,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
-
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
+
 
 
 SWIFT_CLASS_NAMED("ShareAction")
@@ -3191,6 +3220,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKVisitType, "VisitType", open) {
   ZDKVisitTypeRepeat = 1,
 };
 
+enum ZDKWebViewActionSize : NSInteger;
 
 SWIFT_CLASS_NAMED("WebViewAction")
 @interface ZDKWebViewAction : NSObject <ZDKMessageAction>
@@ -3208,6 +3238,10 @@ SWIFT_CLASS_NAMED("WebViewAction")
 @property (nonatomic, readonly, copy) NSString * _Nonnull fallback;
 /// The metadata of this action
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSObject *> * _Nullable metadata;
+/// A flag indicating if the <code>webview</code> should open on receive
+@property (nonatomic, readonly) BOOL openOnReceive;
+/// The size of the webview
+@property (nonatomic, readonly) enum ZDKWebViewActionSize size;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
@@ -3217,6 +3251,12 @@ SWIFT_CLASS_NAMED("WebViewAction")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, ZDKWebViewActionSize, "WebViewActionSize", open) {
+  ZDKWebViewActionSizeFull = 0,
+  ZDKWebViewActionSizeTall = 1,
+  ZDKWebViewActionSizeCompact = 2,
+};
 
 
 /// Wrapper object for Obj-C to return the associated types of the <code>newActivity</code> and <code>activityReceived</code> events.
@@ -3262,6 +3302,8 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventConversationRemoved = 13,
 /// A <code>ProactiveMessage</code> event has occurred.
   ZDKConversationKitEventProactiveMessageStatusChanged = 14,
+/// A new message with a webview action <code>openOnReceive</code> has occurred
+  ZDKConversationKitEventOpenWebViewMessageReceived = 15,
 };
 
 
@@ -3283,6 +3325,20 @@ SWIFT_CLASS("_TtC25ZendeskSDKConversationKit15ZDKMessageEvent")
 @property (nonatomic, readonly, strong) ZDKMessage * _Nonnull message;
 /// The identifier of the <code>Conversation</code> that the messages belong to.
 @property (nonatomic, readonly, copy) NSString * _Nonnull conversationId;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// A new message with a webview action <code>openOnReceive</code> has occurred
+SWIFT_CLASS("_TtC25ZendeskSDKConversationKit29ZDKOpenWebViewMessageReceived")
+@interface ZDKOpenWebViewMessageReceived : NSObject
+/// The url <code>String</code> of the Conversation Extension that needs to be opened.
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+/// The identifier of the <code>Conversation</code> that the messages belong to.
+@property (nonatomic, readonly, copy) NSString * _Nonnull conversationId;
+/// The size of the webview
+@property (nonatomic, readonly) enum ZDKWebViewActionSize size;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
