@@ -619,6 +619,7 @@ SWIFT_CLASS_NAMED("Conversation")
 
 
 
+
 @protocol ZDKConversationKit;
 
 /// Type conforming to <code>ConversationKitBuilderObjC</code> provide methods which vend concrete types of <code>ConversationKitObjC</code>
@@ -647,6 +648,8 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @property (nonatomic, readonly, strong) ZDKFeatureFlagManager * _Nonnull featureFlagManager;
 /// Current <code>User</code> if it exists.
 @property (nonatomic, readonly, strong) ZDKUser * _Nullable currentUser;
+/// Bool indicating if an active conversation was found within the first ten most recently updated conversations
+@property (nonatomic, readonly) BOOL hasActiveConversationInLatestTen;
 /// Remove a type of <code>AnyObject</code> from listening to <code>ConversationKitEvent</code> updates.
 /// note:
 /// If the passed observer is not currently observing, nothing will happen.
@@ -703,6 +706,10 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 - (void)clearConversationFields;
 /// Clears all tags from storage.
 - (void)clearConversationTags;
+/// Caches the most recent ten conversations in memory for quick access.
+/// \param conversations A list of <code>Conversation</code> objects to add to memory.
+///
+- (void)cacheFirstTenMostRecentConversationsInMemory:(NSArray<ZDKConversation *> * _Nonnull)conversations;
 @end
 
 enum ZDKConversationKitEvent : NSInteger;
@@ -1154,11 +1161,11 @@ SWIFT_CLASS_NAMED("Message")
 
 
 
-
 @interface ZDKMessage (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 /// Returns <code>true</code> if the message originated from given <code>Participant</code>
 - (BOOL)isAuthoredBy:(ZDKParticipant * _Nullable)participant SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageActionBuyState, "MessageActionBuyState", open) {
@@ -1387,10 +1394,10 @@ SWIFT_CLASS_NAMED("SelectFormField")
 @end
 
 
+
 @interface ZDKSelectFormField (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 @property (nonatomic, readonly) NSInteger selectSizeObjc;
 @end
-
 
 
 SWIFT_CLASS_NAMED("ShareAction")
