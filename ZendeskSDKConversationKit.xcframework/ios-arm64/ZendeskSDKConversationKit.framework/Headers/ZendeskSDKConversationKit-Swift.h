@@ -1599,30 +1599,32 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventUserAccessRevoked = 2,
 /// <code>Conversation</code> has been updated.
   ZDKConversationKitEventConversationUpdated = 3,
-/// New <code>Message</code> received for <code>Conversation</code> with identifier.
-  ZDKConversationKitEventNewMessage = 4,
 /// New <code>Activity</code> received for <code>Conversation</code> with identifier.
-  ZDKConversationKitEventNewActivity = 5,
+  ZDKConversationKitEventNewActivity = 4,
+/// New <code>Message</code> received for <code>Conversation</code> with identifier.
+  ZDKConversationKitEventNewMessage = 5,
 /// Existing <code>Message</code> updated for <code>Conversation</code> with identifier.
   ZDKConversationKitEventMessageUpdated = 6,
+/// The sending <code>Message</code> failed with <code>ConversationKitError</code>.
+  ZDKConversationKitEventSendMessageFailed = 7,
 /// The push token ‘String’ was stored.
-  ZDKConversationKitEventPushTokenPrepared = 7,
+  ZDKConversationKitEventPushTokenPrepared = 8,
 /// The result of the call to update the push token <code>String</code> with possible <code>Error</code>.
-  ZDKConversationKitEventPushTokenUpdateResult = 8,
+  ZDKConversationKitEventPushTokenUpdateResult = 9,
 /// The result of the login call with possible <code>Error</code>.
-  ZDKConversationKitEventLoginResult = 9,
+  ZDKConversationKitEventLoginResult = 10,
 /// The result of the logout call with possible <code>Error</code>.
-  ZDKConversationKitEventLogoutResult = 10,
+  ZDKConversationKitEventLogoutResult = 11,
 /// The <code>User</code> has been retrieved from storage.
-  ZDKConversationKitEventPersistedUserRetrieved = 11,
+  ZDKConversationKitEventPersistedUserRetrieved = 12,
 /// Current user has gained access to <code>Conversation</code>.
-  ZDKConversationKitEventConversationAdded = 12,
+  ZDKConversationKitEventConversationAdded = 13,
 /// Current user has lost access to <code>Conversation</code> with identifier.
-  ZDKConversationKitEventConversationRemoved = 13,
+  ZDKConversationKitEventConversationRemoved = 14,
 /// A <code>ProactiveMessage</code> event has occurred.
-  ZDKConversationKitEventProactiveMessageStatusChanged = 14,
+  ZDKConversationKitEventProactiveMessageStatusChanged = 15,
 /// A new message with a webview action <code>openOnReceive</code> has occurred
-  ZDKConversationKitEventOpenWebViewMessageReceived = 15,
+  ZDKConversationKitEventOpenWebViewMessageReceived = 16,
 };
 
 
