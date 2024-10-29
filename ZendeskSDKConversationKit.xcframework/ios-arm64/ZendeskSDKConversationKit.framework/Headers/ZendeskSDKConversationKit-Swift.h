@@ -543,6 +543,7 @@ enum ZDKConversationType : NSInteger;
 @class ZDKParticipant;
 @class ZDKMessage;
 enum ZDKConversationStatus : NSInteger;
+enum ZDKConversationRoutingStatus : NSInteger;
 
 SWIFT_CLASS_NAMED("Conversation")
 @interface ZDKConversation : NSObject
@@ -609,7 +610,9 @@ SWIFT_CLASS_NAMED("Conversation")
 @property (nonatomic, readonly, strong) ZDKActivity * _Nullable activity;
 /// The status of the <code>Conversation</code>
 @property (nonatomic, readonly) enum ZDKConversationStatus status;
-- (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKConversationType)type isDefault:(BOOL)isDefault displayName:(NSString * _Nullable)displayName displayDescription:(NSString * _Nullable)displayDescription iconURL:(NSString * _Nullable)iconURL business:(NSArray<NSString *> * _Nonnull)business businessLastRead:(NSDate * _Nullable)businessLastRead lastUpdatedAt:(NSDate * _Nullable)lastUpdatedAt metadata:(NSDictionary<NSString *, NSObject *> * _Nullable)metadata participants:(NSArray<ZDKParticipant *> * _Nonnull)participants messages:(NSArray<ZDKMessage *> * _Nonnull)messages hasPrevious:(BOOL)hasPrevious myself:(ZDKParticipant * _Nullable)myself activity:(ZDKActivity * _Nullable)activity status:(enum ZDKConversationStatus)status createdAt:(NSDate * _Nullable)createdAt OBJC_DESIGNATED_INITIALIZER;
+/// The end user expectation status of the <code>Conversation</code>
+@property (nonatomic, readonly) enum ZDKConversationRoutingStatus routingStatus;
+- (nonnull instancetype)initWithId:(NSString * _Nonnull)id type:(enum ZDKConversationType)type isDefault:(BOOL)isDefault displayName:(NSString * _Nullable)displayName displayDescription:(NSString * _Nullable)displayDescription iconURL:(NSString * _Nullable)iconURL business:(NSArray<NSString *> * _Nonnull)business businessLastRead:(NSDate * _Nullable)businessLastRead lastUpdatedAt:(NSDate * _Nullable)lastUpdatedAt metadata:(NSDictionary<NSString *, NSObject *> * _Nullable)metadata participants:(NSArray<ZDKParticipant *> * _Nonnull)participants messages:(NSArray<ZDKMessage *> * _Nonnull)messages hasPrevious:(BOOL)hasPrevious myself:(ZDKParticipant * _Nullable)myself activity:(ZDKActivity * _Nullable)activity status:(enum ZDKConversationStatus)status createdAt:(NSDate * _Nullable)createdAt routingStatus:(enum ZDKConversationRoutingStatus)routingStatus OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against
 ///
@@ -870,6 +873,13 @@ SWIFT_CLASS_NAMED("ConversationList")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+/// Represents the possible types of <code>routingStatus</code>
+typedef SWIFT_ENUM_NAMED(NSInteger, ZDKConversationRoutingStatus, "ConversationRoutingStatus", open) {
+  ZDKConversationRoutingStatusQueued = 0,
+  ZDKConversationRoutingStatusAssigned = 1,
+  ZDKConversationRoutingStatusCleared = 2,
+};
 
 /// Represents the status of the <code>Conversation</code>.
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKConversationStatus, "ConversationStatus", open) {
@@ -1164,11 +1174,11 @@ SWIFT_CLASS_NAMED("Message")
 
 
 
+
 @interface ZDKMessage (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 /// Returns <code>true</code> if the message originated from given <code>Participant</code>
 - (BOOL)isAuthoredBy:(ZDKParticipant * _Nullable)participant SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageActionBuyState, "MessageActionBuyState", open) {
