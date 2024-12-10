@@ -17,12 +17,12 @@ let package = Package(
         .package(
             name: "ZendeskSDKFayeClient",
             url: "https://github.com/zendesk/sdk_faye_client_ios",
-            from: "1.9.0"
+            from: "1.10.0"
         ),
         .package(
             name: "ZendeskSDKHTTPClient",
             url: "https://github.com/zendesk/sdk_http_client_ios",
-            from: "0.16.1"
+            from: "0.17.0"
         ),
         .package(
             name: "ZendeskSDKStorage",
@@ -32,7 +32,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKCoreUtilities",
             url: "https://github.com/zendesk/sdk_core_utilities_ios",
-            from: "3.0.0"
+            from: "4.0.0"
         )
     ],
     targets: [

@@ -508,14 +508,36 @@ SWIFT_CLASS_NAMED("CarouselMessageContent")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class ZDKRestRetryPolicy;
+@class ZDKWaitTimeConfig;
+enum ZDKRegion : NSInteger;
 
 SWIFT_CLASS_NAMED("Config")
 @interface ZDKConfig : NSObject
-/// The <code>appId</code> related to the App.
+/// The unique resource identifier for the app.
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL OBJC_DESIGNATED_INITIALIZER;
+/// The iOS integration id for this SDK.
+@property (nonatomic, readonly, copy) NSString * _Nonnull integrationId;
+/// The <code>RestRetryPolicy</code> applied to all requests made to Sunshine Conversations.
+@property (nonatomic, readonly, strong) ZDKRestRetryPolicy * _Nonnull restRetryPolicy;
+/// Contains admin settings for queue position and wait time behaviour.
+@property (nonatomic, readonly, strong) ZDKWaitTimeConfig * _Nonnull waitTimeConfig;
+/// Initialize a <code>Config</code> instance.
+/// \param appId The unique resource identifier for the app.
+///
+/// \param baseURL The server base url.
+///
+/// \param integrationId The iOS integration id for this SDK.
+///
+/// \param region The region to connect to.
+///
+/// \param restRetryPolicy The <code>RestRetryPolicy</code> for requests made to Sunshine Conversations.
+///
+/// \param waitTimeConfig The admin settings for queue position and wait time behaviour.
+///
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL integrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region restRetryPolicy:(ZDKRestRetryPolicy * _Nonnull)restRetryPolicy waitTimeConfig:(ZDKWaitTimeConfig * _Nonnull)waitTimeConfig OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -524,6 +546,12 @@ SWIFT_CLASS_NAMED("Config")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+/// The region used to connect to the server.
+typedef SWIFT_ENUM_NAMED(NSInteger, ZDKRegion, "Region", open) {
+  ZDKRegionUs = 0,
+  ZDKRegionEu = 1,
+};
 
 /// Represents the current connection state of the client.
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKConnectionStatus, "ConnectionStatus", open) {
@@ -635,7 +663,6 @@ SWIFT_PROTOCOL_NAMED("ConversationKitBuilderObjC")
 - (id <ZDKConversationKit> _Nonnull)build SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class ZDKConversationKitSettings;
 @class ZDKFeatureFlagManager;
 @class ZDKUser;
 enum ZDKProactiveMessageStatus : NSInteger;
@@ -648,8 +675,6 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 @property (nonatomic, readonly, copy) NSString * _Nonnull clientId;
 /// Current <code>Config</code> of <code>ConversationKit</code>.
 @property (nonatomic, readonly, strong) ZDKConfig * _Nonnull config;
-/// Current <code>ConversationKitSettings</code>.
-@property (nonatomic, readonly, strong) ZDKConversationKitSettings * _Nonnull settings;
 /// Current <code>FeatureFlagManager</code>.
 @property (nonatomic, readonly, strong) ZDKFeatureFlagManager * _Nonnull featureFlagManager;
 /// Current <code>User</code> if it exists.
@@ -720,14 +745,15 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 
 enum ZDKConversationKitEvent : NSInteger;
 @class ZDKConversationList;
+@class ZDKWaitTimeData;
 
-/// <code>ConversationKitObjC</code> needs to be configured  with a <code>ConversationKitSettings</code>
+/// <code>ConversationKitObjC</code> needs to be configured  with a <code>Config</code>
 /// that includes the necessary <code>integrationId</code>.
 /// The <code>integrationId</code> can be retrieved from the Native Messaging dashboard.
 /// \code
-/// id<ConversationKitObjC> conversationKit = [[[ZDKDefaultConversationKitBuilder alloc] init] build];
-/// ZDKConversationKitSettings *settings = [[ZDKConversationKitSettings alloc] initWithIntegrationId:id];
-/// [conversationKit setupWith:settings completion: nil];
+/// conversationKit = [[[ZDKDefaultConversationKitBuilder alloc] init] buildWithConfig: config
+///                                                                 featureFlagManager: featureFlagManager
+///                                                                      callbackQueue: dispatch_get_main_queue()];
 ///
 /// \endcode
 SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
@@ -827,38 +853,12 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 /// \param completion The updated <code>Conversation</code> with the proactive message added if successful, <code>Error</code> if not.
 ///
 - (void)sendConversationReferralWithProactiveMessageId:(NSString * _Nonnull)proactiveMessageId conversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(ZDKConversation * _Nullable, NSError * _Nullable))completion;
-@end
-
-enum ZDKRegion : NSInteger;
-
-SWIFT_CLASS_NAMED("ConversationKitSettings")
-@interface ZDKConversationKitSettings : NSObject
-@property (nonatomic, readonly, copy) NSString * _Nonnull integrationId;
-/// Initialize a <code>ConversationKitSettings</code> instance.
-/// \param integrationId The iOS integration id for this SDK.
+/// Fetches the current wait time for a specific conversation
+/// \param conversationId The Id of the conversation to fetch the wait time for.
 ///
-/// \param region The region to connect to.
+/// \param completion Return the wait time data associated with the conversation if successful, <code>Error</code> if not.
 ///
-/// \param baseURL The server base url.
-///
-- (nonnull instancetype)initWithIntegrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region baseURL:(NSString * _Nullable)baseURL OBJC_DESIGNATED_INITIALIZER;
-/// Returns a Boolean value that indicates whether the receiver and a given object are equal.
-/// \param object the object to compare against
-///
-- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-/// The region used to connect to the server.
-typedef SWIFT_ENUM_NAMED(NSInteger, ZDKRegion, "Region", open) {
-  ZDKRegionUs = 0,
-  ZDKRegionEu = 1,
-};
-
-
-@interface ZDKConversationKitSettings (SWIFT_EXTENSION(ZendeskSDKConversationKit))
-- (nonnull instancetype)initWithIntegrationId:(NSString * _Nonnull)integrationId;
+- (void)getWaitTimeForConversationWithConversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(ZDKWaitTimeData * _Nullable, NSError * _Nullable))completion;
 @end
 
 
@@ -907,7 +907,7 @@ SWIFT_CLASS_NAMED("DefaultConversationKitBuilder")
 
 
 @interface ZDKDefaultConversationKitBuilder (SWIFT_EXTENSION(ZendeskSDKConversationKit))
-- (id <ZDKConversationKit> _Nonnull)buildWith:(ZDKConversationKitSettings * _Nonnull)settings config:(ZDKConfig * _Nonnull)config featureFlagManager:(ZDKFeatureFlagManager * _Nonnull)featureFlagManager callbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
+- (id <ZDKConversationKit> _Nonnull)buildWithConfig:(ZDKConfig * _Nonnull)config featureFlagManager:(ZDKFeatureFlagManager * _Nonnull)featureFlagManager callbackQueue:(dispatch_queue_t _Nonnull)callbackQueue SWIFT_WARN_UNUSED_RESULT;
 @end
 
 enum ZDKFieldType : NSInteger;
@@ -988,6 +988,8 @@ SWIFT_CLASS_NAMED("FileMessageContent")
 @property (nonatomic, readonly, copy) NSString * _Nonnull altText;
 /// The media URL of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaURL;
+/// The attachment identifier of the <code>Message</code>.
+@property (nonatomic, readonly, copy) NSString * _Nullable attachmentId;
 /// Media type of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaType;
 /// Media size of the <code>Message</code>.
@@ -1057,6 +1059,8 @@ SWIFT_CLASS_NAMED("ImageMessageContent")
 @property (nonatomic, readonly) enum ZDKMessageType type;
 /// The media URL of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull mediaURL;
+/// The attachment identifier of the <code>Message</code>.
+@property (nonatomic, readonly, copy) NSString * _Nullable attachmentId;
 /// The text of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
 /// Any actions associated with the message
@@ -1174,11 +1178,11 @@ SWIFT_CLASS_NAMED("Message")
 
 
 
-
 @interface ZDKMessage (SWIFT_EXTENSION(ZendeskSDKConversationKit))
 /// Returns <code>true</code> if the message originated from given <code>Participant</code>
 - (BOOL)isAuthoredBy:(ZDKParticipant * _Nullable)participant SWIFT_WARN_UNUSED_RESULT;
 @end
+
 
 
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKMessageActionBuyState, "MessageActionBuyState", open) {
@@ -1198,6 +1202,8 @@ SWIFT_CLASS_NAMED("MessageActionItem")
 @property (nonatomic, copy) NSString * _Nonnull itemDescription;
 /// The URL of the media to be displayed with this item.
 @property (nonatomic, copy) NSString * _Nonnull mediaURL;
+/// The attachmentId of the media to be displayed with this item (only for private attachments).
+@property (nonatomic, copy) NSString * _Nullable attachmentId;
 /// The type of the media referenced by the [mediaUrl], e.g. “image/jpeg”.
 @property (nonatomic, copy) NSString * _Nonnull mediaType;
 /// An array of <code>MessageAction</code> to be displayed with this item.
@@ -1376,6 +1382,39 @@ SWIFT_CLASS_NAMED("ReplyAction")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSNumber;
+
+SWIFT_CLASS_NAMED("ResponseTime")
+@interface ZDKResponseTime : NSObject
+@property (nonatomic, readonly, strong) NSNumber * _Nullable upperNumber;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable lowerNumber;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable valueNumber;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@class NSUnitDuration;
+
+/// The retry policy used when making REST requests.
+SWIFT_CLASS_NAMED("RestRetryPolicy")
+@interface ZDKRestRetryPolicy : NSObject
+/// The standard interval between requests, 60 by default
+@property (nonatomic, readonly) NSInteger regular;
+/// The aggressive interval between requests, 15 by default
+@property (nonatomic, readonly) NSInteger aggressive;
+/// The <code>UnitDuration</code> used in conjunction with <code>regular</code> and <code>aggressive</code>. UnitDuration.seconds by default.
+@property (nonatomic, readonly, strong) NSUnitDuration * _Nonnull timeUnit;
+/// The backoff multiplier when retrying requests, 2 by default
+@property (nonatomic, readonly) NSInteger backOffMultiplier;
+/// The maximum amount of times to retry a request, 5 by default
+@property (nonatomic, readonly) NSInteger maxRetries;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 
 /// Form Field that takes in generic user input
 SWIFT_CLASS_NAMED("SelectFormField")
@@ -1552,6 +1591,41 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKVisitType, "VisitType", open) {
   ZDKVisitTypeRepeat = 1,
 };
 
+
+/// The wait time configuration. Contains config related to queue position and wait time behaviour.
+SWIFT_CLASS_NAMED("WaitTimeConfig")
+@interface ZDKWaitTimeConfig : NSObject
+/// Indicates if the wait time feature is enabled.
+@property (nonatomic, readonly) BOOL waitTimeEnabled;
+/// Indicates if queue position is enabled.
+@property (nonatomic, readonly) BOOL queuePositionEnabled;
+/// Indicates if only decreasing queue is enabled.
+@property (nonatomic, readonly) BOOL onlyDecreasingQueue;
+/// Optional custom wait time set by an admin in seconds.
+@property (nonatomic, readonly, strong) NSNumber * _Nullable waitTimeOverride;
+/// Interval in seconds at which the SDK should poll for updates from the backend.
+@property (nonatomic, readonly) NSInteger pollingInterval;
+- (nonnull instancetype)initWithWaitTimeEnabled:(BOOL)waitTimeEnabled queuePositionEnabled:(BOOL)queuePositionEnabled onlyDecreasingQueue:(BOOL)onlyDecreasingQueue waitTimeOverride:(NSNumber * _Nullable)waitTimeOverride pollingInterval:(NSInteger)pollingInterval OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("WaitTimeData")
+@interface ZDKWaitTimeData : NSObject
+/// The current position of the end user in the queue.
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull queuePositionNumber;
+/// The lowest queue position the end user has reached since entering the queue. Used when “Only Decreasing Queue Position” setting is enabled.
+@property (nonatomic, readonly, strong) NSNumber * _Nullable lowestQueuePositionNumber;
+/// Optional estimated response time range for when an agent might be assigned.
+@property (nonatomic, readonly, strong) ZDKResponseTime * _Nullable responseTime;
+/// Indicates whether this is the first time the ticket has been routed.
+@property (nonatomic, readonly) BOOL isInitialRouting;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 enum ZDKWebViewActionSize : NSInteger;
 
 SWIFT_CLASS_NAMED("WebViewAction")
@@ -1638,6 +1712,8 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventProactiveMessageStatusChanged = 15,
 /// A new message with a webview action <code>openOnReceive</code> has occurred
   ZDKConversationKitEventOpenWebViewMessageReceived = 16,
+/// The event that gets emitted when the wait time data was fetched
+  ZDKConversationKitEventGetWaitTimeDataResult = 17,
 };
 
 
@@ -1695,6 +1771,17 @@ SWIFT_CLASS("_TtC25ZendeskSDKConversationKit17ZDKPushTokenEvent")
 /// The push token <code>String</code> that was sent to be updated.
 @property (nonatomic, readonly, copy) NSString * _Nonnull token;
 /// The error that occurred if there was a problem updating the token.
+@property (nonatomic, readonly) NSError * _Nullable error;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// The event that gets emitted when the wait time data was fetched
+SWIFT_CLASS("_TtC25ZendeskSDKConversationKit21ZDKWaitTimeDataResult")
+@interface ZDKWaitTimeDataResult : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull conversationId;
+@property (nonatomic, readonly, strong) ZDKWaitTimeData * _Nullable waitTimeData;
 @property (nonatomic, readonly) NSError * _Nullable error;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
