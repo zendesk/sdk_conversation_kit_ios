@@ -357,11 +357,11 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKActivityType, "ActivityType", open) {
   ZDKActivityTypeTypingStart = 1,
 /// A stop typing activity
   ZDKActivityTypeTypingStop = 2,
-/// A conversation queued activity
+/// Indicates that the conversation is in the routing queue.
   ZDKActivityTypeConversationRoutingQueued = 3,
-/// A conversation assigned activity
+/// Indicates that the conversation has been assigned.
   ZDKActivityTypeConversationRoutingAssigned = 4,
-/// A clear wait time activity
+/// Receiving ‘conversation:routing:cleared’ clears the routing queue for a conversation.
   ZDKActivityTypeConversationRoutingCleared = 5,
 };
 
@@ -741,6 +741,8 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 /// \param conversations A list of <code>Conversation</code> objects to add to memory.
 ///
 - (void)cacheFirstTenMostRecentConversationsInMemory:(NSArray<ZDKConversation *> * _Nonnull)conversations;
+/// Call to stop polling for updates to conversation wait time.
+- (void)stopFetchingWaitTime;
 @end
 
 enum ZDKConversationKitEvent : NSInteger;
@@ -858,7 +860,7 @@ SWIFT_PROTOCOL_NAMED("ConversationKitObjC")
 ///
 /// \param completion Return the wait time data associated with the conversation if successful, <code>Error</code> if not.
 ///
-- (void)getWaitTimeForConversationWithConversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(ZDKWaitTimeData * _Nullable, NSError * _Nullable))completion;
+- (void)fetchWaitTimeForConversationWithConversationId:(NSString * _Nonnull)conversationId completion:(void (^ _Nullable)(ZDKWaitTimeData * _Nullable, NSError * _Nullable))completion;
 @end
 
 
@@ -876,9 +878,12 @@ SWIFT_CLASS_NAMED("ConversationList")
 
 /// Represents the possible types of <code>routingStatus</code>
 typedef SWIFT_ENUM_NAMED(NSInteger, ZDKConversationRoutingStatus, "ConversationRoutingStatus", open) {
+/// A <code>Conversation</code> wait time banner is queued to display to the <code>User</code>.
   ZDKConversationRoutingStatusQueued = 0,
+/// A <code>Conversation</code> wait time banner is assigned to display the <code>User</code>.
   ZDKConversationRoutingStatusAssigned = 1,
-  ZDKConversationRoutingStatusCleared = 2,
+/// A <code>Conversation</code> wait time banner is set to null or has invalid status.
+  ZDKConversationRoutingStatusUnknown = 2,
 };
 
 /// Represents the status of the <code>Conversation</code>.
@@ -1063,6 +1068,8 @@ SWIFT_CLASS_NAMED("ImageMessageContent")
 @property (nonatomic, readonly, copy) NSString * _Nullable attachmentId;
 /// The text of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
+/// The rich text of the <code>Message</code> in <code>HTML</code> format.
+@property (nonatomic, readonly, copy) NSString * _Nullable htmlText;
 /// Any actions associated with the message
 @property (nonatomic, readonly, copy) NSArray<id <ZDKMessageAction>> * _Nullable messageActions;
 /// The metadata of the <code>Message</code>
@@ -1390,6 +1397,7 @@ SWIFT_CLASS_NAMED("ResponseTime")
 @property (nonatomic, readonly, strong) NSNumber * _Nullable lowerNumber;
 @property (nonatomic, readonly, strong) NSNumber * _Nullable valueNumber;
 - (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1515,6 +1523,8 @@ SWIFT_CLASS_NAMED("TextMessageContent")
 @property (nonatomic, readonly) enum ZDKMessageType type;
 /// The text of the <code>Message</code>.
 @property (nonatomic, readonly, copy) NSString * _Nonnull text;
+/// The rich text of the <code>Message</code> in <code>HTML</code> format.
+@property (nonatomic, readonly, copy) NSString * _Nullable htmlText;
 /// The payload of the <code>Message</code>
 @property (nonatomic, readonly, copy) NSString * _Nullable payload;
 /// Any actions associated with the message
@@ -1604,8 +1614,8 @@ SWIFT_CLASS_NAMED("WaitTimeConfig")
 /// Optional custom wait time set by an admin in seconds.
 @property (nonatomic, readonly, strong) NSNumber * _Nullable waitTimeOverride;
 /// Interval in seconds at which the SDK should poll for updates from the backend.
-@property (nonatomic, readonly) NSInteger pollingInterval;
-- (nonnull instancetype)initWithWaitTimeEnabled:(BOOL)waitTimeEnabled queuePositionEnabled:(BOOL)queuePositionEnabled onlyDecreasingQueue:(BOOL)onlyDecreasingQueue waitTimeOverride:(NSNumber * _Nullable)waitTimeOverride pollingInterval:(NSInteger)pollingInterval OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) NSInteger queuePollingInterval;
+- (nonnull instancetype)initWithWaitTimeEnabled:(BOOL)waitTimeEnabled queuePositionEnabled:(BOOL)queuePositionEnabled onlyDecreasingQueue:(BOOL)onlyDecreasingQueue waitTimeOverride:(NSNumber * _Nullable)waitTimeOverride queuePollingInterval:(NSInteger)queuePollingInterval OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1621,6 +1631,7 @@ SWIFT_CLASS_NAMED("WaitTimeData")
 @property (nonatomic, readonly, strong) ZDKResponseTime * _Nullable responseTime;
 /// Indicates whether this is the first time the ticket has been routed.
 @property (nonatomic, readonly) BOOL isInitialRouting;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

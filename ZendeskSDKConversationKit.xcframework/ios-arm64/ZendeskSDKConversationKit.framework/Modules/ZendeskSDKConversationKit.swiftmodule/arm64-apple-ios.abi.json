@@ -8648,6 +8648,13 @@
         "moduleName": "ZendeskSDKConversationKit"
       },
       {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
         "kind": "TypeDecl",
         "name": "ConversationKit",
         "printedName": "ConversationKit",
@@ -10313,8 +10320,8 @@
           },
           {
             "kind": "Function",
-            "name": "getWaitTimeForConversation",
-            "printedName": "getWaitTimeForConversation(conversationId:result:)",
+            "name": "fetchWaitTimeForConversation",
+            "printedName": "fetchWaitTimeForConversation(conversationId:result:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -10369,8 +10376,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P014getWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P014getWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P016fetchWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P016fetchWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -10383,14 +10390,28 @@
           },
           {
             "kind": "Function",
-            "name": "getWaitTimeForConversation",
-            "printedName": "getWaitTimeForConversation(conversationId:)",
+            "name": "fetchWaitTimeForConversation",
+            "printedName": "fetchWaitTimeForConversation(conversationId:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "WaitTimeData",
-                "printedName": "ZendeskSDKConversationKit.WaitTimeData",
-                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData"
+                "name": "AnyPublisher",
+                "printedName": "Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WaitTimeData",
+                    "printedName": "ZendeskSDKConversationKit.WaitTimeData",
+                    "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConversationKitError",
+                    "printedName": "ZendeskSDKConversationKit.ConversationKitError",
+                    "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                  }
+                ],
+                "usr": "s:7Combine12AnyPublisherV"
               },
               {
                 "kind": "TypeNominal",
@@ -10400,8 +10421,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P014getWaitTimeForD014conversationIdAA0fG4DataCSS_tYaKF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P014getWaitTimeForD014conversationIdAA0fG4DataCSS_tYaKF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P016fetchWaitTimeForD014conversationId7Combine12AnyPublisherVyAA0fG4DataCAA0dC5ErrorOGSS_tF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P016fetchWaitTimeForD014conversationId7Combine12AnyPublisherVyAA0fG4DataCAA0dC5ErrorOGSS_tF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -10411,8 +10432,31 @@
               "Available",
               "RawDocComment"
             ],
-            "throwing": true,
             "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopFetchingWaitTime",
+            "printedName": "stopFetchingWaitTime()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P20stopFetchingWaitTimeyyF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P20stopFetchingWaitTimeyyF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+            "protocolReq": true,
+            "overriding": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
             "funcSelfKind": "NonMutating"
           },
           {
@@ -12030,14 +12074,95 @@
           },
           {
             "kind": "Function",
-            "name": "getWaitTimeForConversation",
-            "printedName": "getWaitTimeForConversation(conversationId:)",
+            "name": "fetchWaitTimeForConversation",
+            "printedName": "fetchWaitTimeForConversation(conversationId:result:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "WaitTimeData",
-                "printedName": "ZendeskSDKConversationKit.WaitTimeData",
-                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData"
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Result",
+                        "printedName": "Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "WaitTimeData",
+                            "printedName": "ZendeskSDKConversationKit.WaitTimeData",
+                            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ConversationKitError",
+                            "printedName": "ZendeskSDKConversationKit.ConversationKitError",
+                            "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                          }
+                        ],
+                        "usr": "s:s6ResultO"
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE016fetchWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE016fetchWaitTimeForD014conversationId6resultySS_ys6ResultOyAA0fG4DataCAA0dC5ErrorOGcSgtF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "fetchWaitTimeForConversation",
+            "printedName": "fetchWaitTimeForConversation(conversationId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyPublisher",
+                "printedName": "Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "WaitTimeData",
+                    "printedName": "ZendeskSDKConversationKit.WaitTimeData",
+                    "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConversationKitError",
+                    "printedName": "ZendeskSDKConversationKit.ConversationKitError",
+                    "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                  }
+                ],
+                "usr": "s:7Combine12AnyPublisherV"
               },
               {
                 "kind": "TypeNominal",
@@ -12047,8 +12172,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE014getWaitTimeForD014conversationIdAA0fG4DataCSS_tYaKF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE014getWaitTimeForD014conversationIdAA0fG4DataCSS_tYaKF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE016fetchWaitTimeForD014conversationId7Combine12AnyPublisherVyAA0fG4DataCAA0dC5ErrorOGSS_tF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE016fetchWaitTimeForD014conversationId7Combine12AnyPublisherVyAA0fG4DataCAA0dC5ErrorOGSS_tF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -12057,7 +12182,26 @@
               "Available"
             ],
             "isFromExtension": true,
-            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopFetchingWaitTime",
+            "printedName": "stopFetchingWaitTime()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE20stopFetchingWaitTimeyyF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE20stopFetchingWaitTimeyyF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+            "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
         ],
@@ -12741,6 +12885,31 @@
             "declKind": "Func",
             "usr": "c:@M@ZendeskSDKConversationKit@objc(pl)ConversationKitShared(im)cacheFirstTenMostRecentConversationsInMemory:",
             "mangledName": "$s25ZendeskSDKConversationKit012ConversationC6SharedP44cacheFirstTenMostRecentConversationsInMemoryyySayAA0D0CGF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKitShared>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKitShared>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopFetchingWaitTime",
+            "printedName": "stopFetchingWaitTime()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(pl)ConversationKitShared(im)stopFetchingWaitTime",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC6SharedP20stopFetchingWaitTimeyyF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKitShared>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKitShared>",
@@ -13828,6 +13997,46 @@
           },
           {
             "kind": "Var",
+            "name": "expiredJWT",
+            "printedName": "expiredJWT",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZendeskSDKConversationKit.ConversationKitError.Type) -> ZendeskSDKConversationKit.ConversationKitError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ConversationKitError",
+                    "printedName": "ZendeskSDKConversationKit.ConversationKitError",
+                    "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZendeskSDKConversationKit.ConversationKitError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConversationKitError",
+                        "printedName": "ZendeskSDKConversationKit.ConversationKitError",
+                        "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO10expiredJWTyA2CmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5ErrorO10expiredJWTyA2CmF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "errorDomain",
             "printedName": "errorDomain",
             "children": [
@@ -14422,6 +14631,57 @@
                 "moduleName": "ZendeskSDKConversationKit",
                 "declAttributes": [
                   "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData(py)description",
+            "mangledName": "$s25ZendeskSDKConversationKit12WaitTimeDataC11descriptionSSvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "overriding": true,
+            "objc_name": "description",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeData(im)description",
+                "mangledName": "$s25ZendeskSDKConversationKit12WaitTimeDataC11descriptionSSvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
                 ],
                 "accessorKind": "get"
               }
@@ -17789,6 +18049,73 @@
           },
           {
             "kind": "Var",
+            "name": "htmlText",
+            "printedName": "htmlText",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKImageMessageContent(py)htmlText",
+            "mangledName": "$s25ZendeskSDKConversationKit19ImageMessageContentC8htmlTextSSSgvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKImageMessageContent(im)htmlText",
+                "mangledName": "$s25ZendeskSDKConversationKit19ImageMessageContentC8htmlTextSSSgvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "actions",
             "printedName": "actions",
             "children": [
@@ -18042,7 +18369,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(mediaURL:attachmentId:text:actions:metadata:)",
+            "printedName": "init(mediaURL:attachmentId:text:htmlText:actions:metadata:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -18055,6 +18382,21 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -18140,8 +18482,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:25ZendeskSDKConversationKit19ImageMessageContentC8mediaURL12attachmentId4text7actions8metadataACSS_SSSgAISayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
-            "mangledName": "$s25ZendeskSDKConversationKit19ImageMessageContentC8mediaURL12attachmentId4text7actions8metadataACSS_SSSgAISayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
+            "usr": "s:25ZendeskSDKConversationKit19ImageMessageContentC8mediaURL12attachmentId4text8htmlText7actions8metadataACSS_SSSgA2JSayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
+            "mangledName": "$s25ZendeskSDKConversationKit19ImageMessageContentC8mediaURL12attachmentId4text8htmlText7actions8metadataACSS_SSSgA2JSayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "AccessControl"
@@ -21123,6 +21465,7 @@
             "mangledName": "$s25ZendeskSDKConversationKit25ConversationRoutingStatusO6queuedyA2CmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 0
@@ -21164,14 +21507,15 @@
             "mangledName": "$s25ZendeskSDKConversationKit25ConversationRoutingStatusO8assignedyA2CmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 1
           },
           {
             "kind": "Var",
-            "name": "cleared",
-            "printedName": "cleared",
+            "name": "unknown",
+            "printedName": "unknown",
             "children": [
               {
                 "kind": "TypeFunc",
@@ -21201,10 +21545,11 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "c:@M@ZendeskSDKConversationKit@E@ZDKConversationRoutingStatus@ZDKConversationRoutingStatusCleared",
-            "mangledName": "$s25ZendeskSDKConversationKit25ConversationRoutingStatusO7clearedyA2CmF",
+            "usr": "c:@M@ZendeskSDKConversationKit@E@ZDKConversationRoutingStatus@ZDKConversationRoutingStatusUnknown",
+            "mangledName": "$s25ZendeskSDKConversationKit25ConversationRoutingStatusO7unknownyA2CmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
             "fixedbinaryorder": 2
@@ -21618,8 +21963,8 @@
           },
           {
             "kind": "Var",
-            "name": "pollingInterval",
-            "printedName": "pollingInterval",
+            "name": "queuePollingInterval",
+            "printedName": "queuePollingInterval",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21629,8 +21974,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(py)pollingInterval",
-            "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC15pollingIntervalSivp",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(py)queuePollingInterval",
+            "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC20queuePollingIntervalSivp",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "Final",
@@ -21655,8 +22000,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(im)pollingInterval",
-                "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC15pollingIntervalSivg",
+                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(im)queuePollingInterval",
+                "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC20queuePollingIntervalSivg",
                 "moduleName": "ZendeskSDKConversationKit",
                 "implicit": true,
                 "declAttributes": [
@@ -21670,7 +22015,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(waitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:pollingInterval:)",
+            "printedName": "init(waitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:queuePollingInterval:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21718,10 +22063,10 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(im)initWithWaitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:pollingInterval:",
-            "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC04waitE7Enabled013queuePositionH019onlyDecreasingQueue0gE8Override15pollingIntervalACSb_S2bSo8NSNumberCSgSitcfc",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKWaitTimeConfig(im)initWithWaitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:queuePollingInterval:",
+            "mangledName": "$s25ZendeskSDKConversationKit14WaitTimeConfigC04waitE7Enabled013queuePositionH019onlyDecreasingQueue0gE8Override0I15PollingIntervalACSb_S2bSo8NSNumberCSgSitcfc",
             "moduleName": "ZendeskSDKConversationKit",
-            "objc_name": "initWithWaitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:pollingInterval:",
+            "objc_name": "initWithWaitTimeEnabled:queuePositionEnabled:onlyDecreasingQueue:waitTimeOverride:queuePollingInterval:",
             "declAttributes": [
               "AccessControl",
               "ObjC"
@@ -23619,8 +23964,8 @@
           },
           {
             "kind": "Var",
-            "name": "getWaitTimeDataResult",
-            "printedName": "getWaitTimeDataResult",
+            "name": "fetchWaitTimeDataResult",
+            "printedName": "fetchWaitTimeDataResult",
             "children": [
               {
                 "kind": "TypeFunc",
@@ -23690,8 +24035,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO21getWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO21getWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO23fetchWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO23fetchWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "RawDocComment"
@@ -27031,6 +27376,57 @@
               "Override"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKResponseTime(py)description",
+            "mangledName": "$s25ZendeskSDKConversationKit12ResponseTimeC11descriptionSSvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "overriding": true,
+            "objc_name": "description",
+            "declAttributes": [
+              "Final",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKResponseTime(im)description",
+                "mangledName": "$s25ZendeskSDKConversationKit12ResponseTimeC11descriptionSSvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
           },
           {
             "kind": "Constructor",
@@ -30663,6 +31059,73 @@
           },
           {
             "kind": "Var",
+            "name": "htmlText",
+            "printedName": "htmlText",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKTextMessageContent(py)htmlText",
+            "mangledName": "$s25ZendeskSDKConversationKit18TextMessageContentC04htmlD0SSSgvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@ZendeskSDKConversationKit@objc(cs)ZDKTextMessageContent(im)htmlText",
+                "mangledName": "$s25ZendeskSDKConversationKit18TextMessageContentC04htmlD0SSSgvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "payload",
             "printedName": "payload",
             "children": [
@@ -30983,7 +31446,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(text:payload:actions:metadata:)",
+            "printedName": "init(text:htmlText:payload:actions:metadata:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30996,6 +31459,21 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -31066,8 +31544,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:25ZendeskSDKConversationKit18TextMessageContentC4text7payload7actions8metadataACSS_SSSgSayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
-            "mangledName": "$s25ZendeskSDKConversationKit18TextMessageContentC4text7payload7actions8metadataACSS_SSSgSayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
+            "usr": "s:25ZendeskSDKConversationKit18TextMessageContentC4text04htmlD07payload7actions8metadataACSS_SSSgAISayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
+            "mangledName": "$s25ZendeskSDKConversationKit18TextMessageContentC4text04htmlD07payload7actions8metadataACSS_SSSgAISayAA0E11ActionModelOGSgSDySSs11AnyHashableVGSgtcfc",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "AccessControl"
@@ -35516,6 +35994,26 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKLogger",
+        "printedName": "ZendeskSDKLogger",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKLogger",
+        "printedName": "ZendeskSDKLogger",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -44146,7 +44644,7 @@
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Conversation.swift",
       "kind": "StringLiteral",
       "offset": 7209,
-      "length": 1914,
+      "length": 1970,
       "value": "\"\""
     },
     {
@@ -44201,56 +44699,56 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "StringLiteral",
-      "offset": 754,
+      "offset": 753,
       "length": 12,
       "value": "\"AUTH_ERROR\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1681,
+      "offset": 1680,
       "length": 3,
       "value": "401"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 1712,
+      "offset": 1711,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1878,
+      "offset": 1877,
       "length": 125,
       "value": "\"401 Status Code: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1938,
+      "offset": 1937,
       "length": 1,
       "value": "\", Description: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1983,
+      "offset": 1982,
       "length": 717,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2030,
+      "offset": 2029,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/UserRESTClient\/Helpers\/ErrorHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 2350,
+      "offset": 2349,
       "length": 3,
       "value": "403"
     },
@@ -45692,133 +46190,133 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2739,
+      "offset": 2839,
       "length": 5,
       "value": "\"_id\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2933,
+      "offset": 3055,
       "length": 11,
       "value": "\"avatarUrl\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2969,
+      "offset": 3091,
       "length": 10,
       "value": "\"mediaUrl\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2739,
+      "offset": 2839,
       "length": 5,
       "value": "\"_id\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2933,
+      "offset": 3055,
       "length": 11,
       "value": "\"avatarUrl\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2969,
+      "offset": 3091,
       "length": 10,
       "value": "\"mediaUrl\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "Array",
-      "offset": 3670,
+      "offset": 3792,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "Array",
-      "offset": 3769,
+      "offset": 3891,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 3885,
+      "offset": 4024,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "Array",
-      "offset": 4084,
+      "offset": 4288,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 4325,
+      "offset": 4529,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "BooleanLiteral",
-      "offset": 4762,
+      "offset": 4966,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 4958,
+      "offset": 5162,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 5255,
+      "offset": 5495,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 5295,
+      "offset": 5535,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 5337,
+      "offset": 5577,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 5425,
+      "offset": 5665,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "IntegerLiteral",
-      "offset": 5469,
+      "offset": 5709,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "Array",
-      "offset": 5889,
+      "offset": 6129,
       "length": 2,
       "value": "[]"
     },
@@ -45832,37 +46330,79 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
       "kind": "StringLiteral",
-      "offset": 1757,
+      "offset": 1818,
       "length": 47,
       "value": "\"Internal mapping error, this should not occur\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
       "kind": "StringLiteral",
-      "offset": 1869,
+      "offset": 1930,
       "length": 56,
       "value": "\"Action cannot be performed in current state of the SDK\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
       "kind": "StringLiteral",
-      "offset": 2047,
+      "offset": 2108,
       "length": 21,
       "value": "\"User already exists\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
       "kind": "StringLiteral",
-      "offset": 2121,
+      "offset": 2182,
       "length": 39,
       "value": "\"The JWT provided could not be decoded\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
+      "kind": "StringLiteral",
+      "offset": 2267,
+      "length": 21,
+      "value": "\"The JWT has expired\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitError.swift",
       "kind": "Dictionary",
-      "offset": 2296,
+      "offset": 2424,
       "length": 3,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
+      "kind": "StringLiteral",
+      "offset": 1903,
+      "length": 298,
+      "value": "\"WaitTimeData(\n        queuePosition: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
+      "kind": "StringLiteral",
+      "offset": 1976,
+      "length": 1,
+      "value": "\",\n        lowestQueuePosition: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
+      "kind": "StringLiteral",
+      "offset": 2057,
+      "length": 1,
+      "value": "\",\n        responseTime: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
+      "kind": "StringLiteral",
+      "offset": 2124,
+      "length": 1,
+      "value": "\",\n        isInitialRouting: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
+      "kind": "StringLiteral",
+      "offset": 2179,
+      "length": 1,
+      "value": "\"\n)\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/WaitTimeData.swift",
@@ -45937,63 +46477,63 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 6319,
+      "offset": 6374,
       "length": 49,
       "value": "\"Event type is not yet implemented for: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 6367,
+      "offset": 6422,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 7235,
+      "offset": 7290,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 7726,
+      "offset": 7781,
       "length": 39,
       "value": "\"\/sdk\/apps\/\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 7745,
+      "offset": 7800,
       "length": 1,
       "value": "\"\/appusers\/\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 7764,
+      "offset": 7819,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 8595,
+      "offset": 8650,
       "length": 46,
       "value": "\"Unable to parse FAYE message: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 8640,
+      "offset": 8695,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 8957,
+      "offset": 9012,
       "length": 1,
       "value": "1"
     },
@@ -46301,56 +46841,63 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1753,
+      "offset": 1882,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1913,
-      "length": 277,
+      "offset": 2075,
+      "length": 332,
       "value": "\"ImageMessageContent(\n    imageURL: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1979,
+      "offset": 2141,
       "length": 1,
       "value": "\",\n    attachmentId: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 2042,
+      "offset": 2204,
       "length": 1,
       "value": "\",\n    text: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 2069,
+      "offset": 2231,
+      "length": 1,
+      "value": "\",\n    htmlText: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
+      "kind": "StringLiteral",
+      "offset": 2286,
       "length": 1,
       "value": "\",\n    actions: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 2122,
+      "offset": 2339,
       "length": 1,
       "value": "\",\n    metadata: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 2177,
+      "offset": 2394,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ImageMessageContent.swift",
       "kind": "BooleanLiteral",
-      "offset": 2496,
+      "offset": 2713,
       "length": 5,
       "value": "false"
     },
@@ -46679,63 +47226,63 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "BooleanLiteral",
-      "offset": 14076,
+      "offset": 14979,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 15968,
+      "offset": 16871,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "BooleanLiteral",
-      "offset": 18565,
+      "offset": 19468,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "BooleanLiteral",
-      "offset": 23458,
+      "offset": 24361,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "BooleanLiteral",
-      "offset": 27195,
+      "offset": 28130,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 35616,
+      "offset": 36764,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 42006,
+      "offset": 43154,
       "length": 3,
       "value": "413"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 42144,
+      "offset": 43292,
       "length": 3,
       "value": "415"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 46232,
+      "offset": 47380,
       "length": 1,
       "value": "1"
     },
@@ -46770,105 +47317,105 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 867,
+      "offset": 893,
       "length": 25,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 943,
+      "offset": 987,
       "length": 27,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 1015,
+      "offset": 1118,
       "length": 26,
       "value": "5"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1141,
+      "offset": 1244,
       "length": 19,
       "value": "\"conversation:read\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1195,
+      "offset": 1298,
       "length": 14,
       "value": "\"typing:start\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1243,
+      "offset": 1346,
       "length": 13,
       "value": "\"typing:stop\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1305,
+      "offset": 1408,
       "length": 29,
       "value": "\"conversation:routing:queued\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1385,
+      "offset": 1488,
       "length": 31,
       "value": "\"conversation:routing:assigned\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 1466,
+      "offset": 1569,
       "length": 30,
       "value": "\"conversation:routing:cleared\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2043,
+      "offset": 2146,
       "length": 19,
       "value": "\"conversation:read\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2102,
+      "offset": 2205,
       "length": 13,
       "value": "\"typing:stop\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2149,
+      "offset": 2252,
       "length": 14,
       "value": "\"typing:start\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2198,
+      "offset": 2301,
       "length": 29,
       "value": "\"conversation:routing:queued\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2276,
+      "offset": 2379,
       "length": 31,
       "value": "\"conversation:routing:assigned\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "StringLiteral",
-      "offset": 2358,
+      "offset": 2461,
       "length": 30,
       "value": "\"conversation:routing:cleared\""
     },
@@ -46889,21 +47436,21 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 867,
+      "offset": 893,
       "length": 25,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 943,
+      "offset": 987,
       "length": 27,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ActivityType.swift",
       "kind": "IntegerLiteral",
-      "offset": 1015,
+      "offset": 1118,
       "length": 26,
       "value": "5"
     },
@@ -47001,42 +47548,42 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 774,
+      "offset": 929,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 792,
+      "offset": 1027,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "StringLiteral",
-      "offset": 883,
+      "offset": 1118,
       "length": 8,
       "value": "\"queued\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "StringLiteral",
-      "offset": 921,
+      "offset": 1156,
       "length": 10,
       "value": "\"assigned\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 774,
+      "offset": 929,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationRoutingStatus.swift",
       "kind": "IntegerLiteral",
-      "offset": 792,
+      "offset": 1027,
       "length": 7,
       "value": "2"
     },
@@ -47421,49 +47968,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 24161,
+      "offset": 24239,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 24685,
+      "offset": 24763,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "StringLiteral",
-      "offset": 25007,
+      "offset": 25085,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 25272,
+      "offset": 25350,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 27806,
+      "offset": 27884,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 31631,
+      "offset": 31709,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorRepository.swift",
       "kind": "IntegerLiteral",
-      "offset": 32363,
+      "offset": 32441,
       "length": 1,
       "value": "0"
     },
@@ -47526,287 +48073,287 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 6970,
+      "offset": 6974,
       "length": 11,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7030,
+      "offset": 7034,
       "length": 17,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7098,
+      "offset": 7102,
       "length": 19,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7195,
+      "offset": 7199,
       "length": 11,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7283,
+      "offset": 7287,
       "length": 10,
       "value": "5"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7374,
+      "offset": 7378,
       "length": 14,
       "value": "6"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7464,
+      "offset": 7468,
       "length": 17,
       "value": "7"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7535,
+      "offset": 7539,
       "length": 17,
       "value": "8"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7650,
+      "offset": 7654,
       "length": 21,
       "value": "9"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7741,
+      "offset": 7745,
       "length": 11,
       "value": "10"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7823,
+      "offset": 7827,
       "length": 12,
       "value": "11"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7897,
+      "offset": 7901,
       "length": 22,
       "value": "12"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7987,
+      "offset": 7991,
       "length": 17,
       "value": "13"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8086,
+      "offset": 8090,
       "length": 19,
       "value": "14"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8164,
+      "offset": 8168,
       "length": 29,
       "value": "15"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8276,
+      "offset": 8280,
       "length": 26,
       "value": "16"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8384,
+      "offset": 8388,
       "length": 21,
       "value": "17"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 6970,
+      "offset": 6974,
       "length": 11,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7030,
+      "offset": 7034,
       "length": 17,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7098,
+      "offset": 7102,
       "length": 19,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7195,
+      "offset": 7199,
       "length": 11,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7283,
+      "offset": 7287,
       "length": 10,
       "value": "5"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7374,
+      "offset": 7378,
       "length": 14,
       "value": "6"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7464,
+      "offset": 7468,
       "length": 17,
       "value": "7"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7535,
+      "offset": 7539,
       "length": 17,
       "value": "8"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7650,
+      "offset": 7654,
       "length": 21,
       "value": "9"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7741,
+      "offset": 7745,
       "length": 11,
       "value": "10"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7823,
+      "offset": 7827,
       "length": 12,
       "value": "11"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7897,
+      "offset": 7901,
       "length": 22,
       "value": "12"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 7987,
+      "offset": 7991,
       "length": 17,
       "value": "13"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8086,
+      "offset": 8090,
       "length": 19,
       "value": "14"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8164,
+      "offset": 8168,
       "length": 29,
       "value": "15"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8276,
+      "offset": 8280,
       "length": 26,
       "value": "16"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "IntegerLiteral",
-      "offset": 8384,
+      "offset": 8388,
       "length": 21,
       "value": "17"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 8543,
+      "offset": 8547,
       "length": 15,
       "value": "\"ZendeskSDKConversationKit.ZDKMessageEvent\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 9043,
+      "offset": 9047,
       "length": 16,
       "value": "\"ZendeskSDKConversationKit.ZDKActivityEvent\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 9439,
+      "offset": 9443,
       "length": 17,
       "value": "\"ZendeskSDKConversationKit.ZDKPushTokenEvent\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 9806,
+      "offset": 9810,
       "length": 14,
       "value": "\"ZendeskSDKConversationKit.ZDKLoginResult\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 10213,
+      "offset": 10217,
       "length": 32,
       "value": "\"ZendeskSDKConversationKit.ZDKProactiveMessageStatusChanged\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 10720,
+      "offset": 10724,
       "length": 29,
       "value": "\"ZendeskSDKConversationKit.ZDKOpenWebViewMessageReceived\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKitEvent.swift",
       "kind": "StringLiteral",
-      "offset": 11369,
+      "offset": 11373,
       "length": 21,
       "value": "\"ZendeskSDKConversationKit.ZDKWaitTimeDataResult\""
     },
@@ -47865,6 +48412,34 @@
       "offset": 2301,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ResponseTime.swift",
+      "kind": "StringLiteral",
+      "offset": 2501,
+      "length": 193,
+      "value": "\"ResponseTime(\n    upper: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ResponseTime.swift",
+      "kind": "StringLiteral",
+      "offset": 2574,
+      "length": 1,
+      "value": "\",\n    lower: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ResponseTime.swift",
+      "kind": "StringLiteral",
+      "offset": 2623,
+      "length": 1,
+      "value": "\",\n    value: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ResponseTime.swift",
+      "kind": "StringLiteral",
+      "offset": 2672,
+      "length": 1,
+      "value": "\"\n)\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Activity\/ResponseTime.swift",
@@ -48065,49 +48640,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "StringLiteral",
-      "offset": 1455,
+      "offset": 1454,
       "length": 18,
       "value": "\"EFFECT_PROCESSOR\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 2598,
+      "offset": 2597,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 3748,
+      "offset": 3747,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "IntegerLiteral",
-      "offset": 4902,
+      "offset": 4901,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "StringLiteral",
-      "offset": 6124,
+      "offset": 6123,
       "length": 49,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "StringLiteral",
-      "offset": 6134,
+      "offset": 6133,
       "length": 6,
       "value": "\" cannot be performed on \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/EffectProcessor\/EffectProcessor.swift",
       "kind": "StringLiteral",
-      "offset": 6172,
+      "offset": 6171,
       "length": 2,
       "value": "\"\""
     },
@@ -48275,42 +48850,49 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1755,
-      "length": 254,
+      "offset": 1917,
+      "length": 321,
       "value": "\"TextMessageContent(text: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1799,
+      "offset": 1961,
+      "length": 1,
+      "value": "\",\n                htmlText: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
+      "kind": "StringLiteral",
+      "offset": 2028,
       "length": 1,
       "value": "\",\n                payload: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1864,
+      "offset": 2093,
       "length": 1,
       "value": "\",\n                actions: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1929,
+      "offset": 2158,
       "length": 1,
       "value": "\",\n                metadata: \""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "StringLiteral",
-      "offset": 1996,
+      "offset": 2225,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/TextMessageContent.swift",
       "kind": "BooleanLiteral",
-      "offset": 2314,
+      "offset": 2543,
       "length": 5,
       "value": "false"
     },
@@ -48798,6 +49380,307 @@
       "value": "\"ZendeskSDKConversationKit.FormMessageContent\""
     },
     {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 1043,
+      "length": 9,
+      "value": "\"POLLING\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2145,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2171,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2374,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2658,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2679,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2783,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 2897,
+      "length": 39,
+      "value": "\"Max retries reached. Stopping polling\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3012,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3100,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3460,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3490,
+      "length": 46,
+      "value": "\"Polling in \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3526,
+      "length": 7,
+      "value": "\" seconds.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3551,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3631,
+      "length": 72,
+      "value": "\"Retrying in \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3668,
+      "length": 7,
+      "value": "\" seconds. Retry count: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3701,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "IntegerLiteral",
+      "offset": 3813,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3843,
+      "length": 72,
+      "value": "\"Retrying in \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3880,
+      "length": 7,
+      "value": "\" seconds. Retry count: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
+      "kind": "StringLiteral",
+      "offset": 3913,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 1227,
+      "length": 33,
+      "value": "\"END_USER_EXPECTATION_REPOSITORY\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2437,
+      "length": 55,
+      "value": "\"Polling disabled. Fetching wait time without polling.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2612,
+      "length": 53,
+      "value": "\"Polling STARTED for conversation \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2663,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2780,
+      "length": 80,
+      "value": "\"Stopping polling for conversation \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2835,
+      "length": 22,
+      "value": "\"<nil conversationId>\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 2858,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3562,
+      "length": 38,
+      "value": "\"Response from EUC. Result: \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 3599,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4258,
+      "length": 40,
+      "value": "\"Successful response received from EUC.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4413,
+      "length": 21,
+      "value": "\"Continuing polling.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4669,
+      "length": 3,
+      "value": "500"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4674,
+      "length": 3,
+      "value": "429"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4772,
+      "length": 108,
+      "value": "\"Error code \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4799,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 4801,
+      "length": 8,
+      "value": "\" received. Polling is disabled or max retries limit reached. Stopping polling.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5005,
+      "length": 50,
+      "value": "\"Error code \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5032,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5034,
+      "length": 8,
+      "value": "\" received. Retrying.\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5253,
+      "length": 58,
+      "value": "\"Error code \""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5280,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
+      "kind": "StringLiteral",
+      "offset": 5282,
+      "length": 8,
+      "value": "\" received. Stopping polling.\""
+    },
+    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/AppUserDTO.swift",
       "kind": "StringLiteral",
       "offset": 2826,
@@ -49101,7 +49984,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "Array",
-      "offset": 3804,
+      "offset": 3874,
       "length": 2,
       "value": "[]"
     },
@@ -49647,14 +50530,14 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/Models\/WsConversationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 827,
+      "offset": 856,
       "length": 5,
       "value": "\"_id\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/Models\/WsConversationDTO.swift",
       "kind": "StringLiteral",
-      "offset": 827,
+      "offset": 856,
       "length": 5,
       "value": "\"_id\""
     },
