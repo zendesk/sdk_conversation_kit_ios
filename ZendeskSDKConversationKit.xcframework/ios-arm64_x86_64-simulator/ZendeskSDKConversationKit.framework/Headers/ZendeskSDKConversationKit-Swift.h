@@ -518,6 +518,8 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
+/// The base URL for the Zendesk account, extracted from the channel key.
+@property (nonatomic, copy) NSString * _Nonnull settingsBaseURL;
 /// The iOS integration id for this SDK.
 @property (nonatomic, readonly, copy) NSString * _Nonnull integrationId;
 /// The <code>RestRetryPolicy</code> applied to all requests made to Sunshine Conversations.
@@ -527,7 +529,9 @@ SWIFT_CLASS_NAMED("Config")
 /// Initialize a <code>Config</code> instance.
 /// \param appId The unique resource identifier for the app.
 ///
-/// \param baseURL The server base url.
+/// \param baseURL The server base url of the Sunshine Conversations instance.
+///
+/// \param settingsBaseURL the base URL for the Zendesk account, extracted from the channel key. 
 ///
 /// \param integrationId The iOS integration id for this SDK.
 ///
@@ -537,7 +541,7 @@ SWIFT_CLASS_NAMED("Config")
 ///
 /// \param waitTimeConfig The admin settings for queue position and wait time behaviour.
 ///
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL integrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region restRetryPolicy:(ZDKRestRetryPolicy * _Nonnull)restRetryPolicy waitTimeConfig:(ZDKWaitTimeConfig * _Nonnull)waitTimeConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL settingsBaseURL:(NSString * _Nonnull)settingsBaseURL integrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region restRetryPolicy:(ZDKRestRetryPolicy * _Nonnull)restRetryPolicy waitTimeConfig:(ZDKWaitTimeConfig * _Nonnull)waitTimeConfig OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -737,10 +741,10 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 - (void)clearConversationFields;
 /// Clears all tags from storage.
 - (void)clearConversationTags;
-/// Caches the most recent ten conversations in memory for quick access.
-/// \param conversations A list of <code>Conversation</code> objects to add to memory.
+/// Update the user’s conversations.
+/// \param conversations A list of <code>Conversation</code> objects.
 ///
-- (void)cacheFirstTenMostRecentConversationsInMemory:(NSArray<ZDKConversation *> * _Nonnull)conversations;
+- (void)updateUserConversations:(NSArray<ZDKConversation *> * _Nonnull)conversations;
 /// Call to stop polling for updates to conversation wait time.
 - (void)stopFetchingWaitTime;
 @end
@@ -1715,16 +1719,18 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventLogoutResult = 11,
 /// The <code>User</code> has been retrieved from storage.
   ZDKConversationKitEventPersistedUserRetrieved = 12,
+/// The <code>User</code> has started a conversation on their device.
+  ZDKConversationKitEventConversationStarted = 13,
 /// Current user has gained access to <code>Conversation</code>.
-  ZDKConversationKitEventConversationAdded = 13,
+  ZDKConversationKitEventConversationAdded = 14,
 /// Current user has lost access to <code>Conversation</code> with identifier.
-  ZDKConversationKitEventConversationRemoved = 14,
+  ZDKConversationKitEventConversationRemoved = 15,
 /// A <code>ProactiveMessage</code> event has occurred.
-  ZDKConversationKitEventProactiveMessageStatusChanged = 15,
+  ZDKConversationKitEventProactiveMessageStatusChanged = 16,
 /// A new message with a webview action <code>openOnReceive</code> has occurred
-  ZDKConversationKitEventOpenWebViewMessageReceived = 16,
+  ZDKConversationKitEventOpenWebViewMessageReceived = 17,
 /// The event that gets emitted when the wait time data was fetched
-  ZDKConversationKitEventGetWaitTimeDataResult = 17,
+  ZDKConversationKitEventGetWaitTimeDataResult = 18,
 };
 
 
@@ -2326,6 +2332,8 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, copy) NSString * _Nonnull appId;
 /// The <code>baseURL</code> related to the Sunshine Conversations instance.
 @property (nonatomic, copy) NSString * _Nonnull baseURL;
+/// The base URL for the Zendesk account, extracted from the channel key.
+@property (nonatomic, copy) NSString * _Nonnull settingsBaseURL;
 /// The iOS integration id for this SDK.
 @property (nonatomic, readonly, copy) NSString * _Nonnull integrationId;
 /// The <code>RestRetryPolicy</code> applied to all requests made to Sunshine Conversations.
@@ -2335,7 +2343,9 @@ SWIFT_CLASS_NAMED("Config")
 /// Initialize a <code>Config</code> instance.
 /// \param appId The unique resource identifier for the app.
 ///
-/// \param baseURL The server base url.
+/// \param baseURL The server base url of the Sunshine Conversations instance.
+///
+/// \param settingsBaseURL the base URL for the Zendesk account, extracted from the channel key. 
 ///
 /// \param integrationId The iOS integration id for this SDK.
 ///
@@ -2345,7 +2355,7 @@ SWIFT_CLASS_NAMED("Config")
 ///
 /// \param waitTimeConfig The admin settings for queue position and wait time behaviour.
 ///
-- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL integrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region restRetryPolicy:(ZDKRestRetryPolicy * _Nonnull)restRetryPolicy waitTimeConfig:(ZDKWaitTimeConfig * _Nonnull)waitTimeConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAppId:(NSString * _Nonnull)appId baseURL:(NSString * _Nonnull)baseURL settingsBaseURL:(NSString * _Nonnull)settingsBaseURL integrationId:(NSString * _Nonnull)integrationId region:(enum ZDKRegion)region restRetryPolicy:(ZDKRestRetryPolicy * _Nonnull)restRetryPolicy waitTimeConfig:(ZDKWaitTimeConfig * _Nonnull)waitTimeConfig OBJC_DESIGNATED_INITIALIZER;
 /// Returns a Boolean value that indicates whether the receiver and a given object are equal.
 /// \param object the object to compare against.
 ///
@@ -2545,10 +2555,10 @@ SWIFT_PROTOCOL("_TtP25ZendeskSDKConversationKit21ConversationKitShared_")
 - (void)clearConversationFields;
 /// Clears all tags from storage.
 - (void)clearConversationTags;
-/// Caches the most recent ten conversations in memory for quick access.
-/// \param conversations A list of <code>Conversation</code> objects to add to memory.
+/// Update the user’s conversations.
+/// \param conversations A list of <code>Conversation</code> objects.
 ///
-- (void)cacheFirstTenMostRecentConversationsInMemory:(NSArray<ZDKConversation *> * _Nonnull)conversations;
+- (void)updateUserConversations:(NSArray<ZDKConversation *> * _Nonnull)conversations;
 /// Call to stop polling for updates to conversation wait time.
 - (void)stopFetchingWaitTime;
 @end
@@ -3523,16 +3533,18 @@ typedef SWIFT_ENUM(NSInteger, ZDKConversationKitEvent, open) {
   ZDKConversationKitEventLogoutResult = 11,
 /// The <code>User</code> has been retrieved from storage.
   ZDKConversationKitEventPersistedUserRetrieved = 12,
+/// The <code>User</code> has started a conversation on their device.
+  ZDKConversationKitEventConversationStarted = 13,
 /// Current user has gained access to <code>Conversation</code>.
-  ZDKConversationKitEventConversationAdded = 13,
+  ZDKConversationKitEventConversationAdded = 14,
 /// Current user has lost access to <code>Conversation</code> with identifier.
-  ZDKConversationKitEventConversationRemoved = 14,
+  ZDKConversationKitEventConversationRemoved = 15,
 /// A <code>ProactiveMessage</code> event has occurred.
-  ZDKConversationKitEventProactiveMessageStatusChanged = 15,
+  ZDKConversationKitEventProactiveMessageStatusChanged = 16,
 /// A new message with a webview action <code>openOnReceive</code> has occurred
-  ZDKConversationKitEventOpenWebViewMessageReceived = 16,
+  ZDKConversationKitEventOpenWebViewMessageReceived = 17,
 /// The event that gets emitted when the wait time data was fetched
-  ZDKConversationKitEventGetWaitTimeDataResult = 17,
+  ZDKConversationKitEventGetWaitTimeDataResult = 18,
 };
 
 
