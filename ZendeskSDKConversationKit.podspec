@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZendeskSDKConversationKit"
-  s.version      = "11.2.0"
+  s.version      = "11.3.0"
   s.summary      = "ZendeskSDKConversationKit #{s.version.to_s}"
   s.homepage     = "https://developer.zendesk.com/documentation/zendesk-web-widget-sdks/sdks/ios/getting_started/"
   s.license      = {
@@ -25,5 +25,5 @@ Pod::Spec.new do |s|
   s.dependency 'ZendeskSDKFayeClient', '~> 1.13.0'
   s.dependency 'ZendeskSDKHTTPClient', '~> 0.20.0'
   s.dependency 'ZendeskSDKStorage', '~> 1.3.0'
-  s.dependency 'ZendeskSDKCoreUtilities', '~> 7.1.0'
+  s.dependency 'ZendeskSDKCoreUtilities', '~> 7.2.0'
 end
