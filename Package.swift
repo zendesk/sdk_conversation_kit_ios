@@ -17,7 +17,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKFayeClient",
             url: "https://github.com/zendesk/sdk_faye_client_ios",
-            from: "1.13.0"
+            from: "1.14.0"
         ),
         .package(
             name: "ZendeskSDKHTTPClient",
