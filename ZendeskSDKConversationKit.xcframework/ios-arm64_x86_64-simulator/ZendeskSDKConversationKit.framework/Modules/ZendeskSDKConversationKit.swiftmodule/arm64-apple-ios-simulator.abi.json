@@ -6369,6 +6369,33 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setup",
+            "printedName": "setup(authDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AuthenticationDelegate",
+                "printedName": "any ZendeskSDKConversationKit.AuthenticationDelegate",
+                "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC7BuilderP5setup12authDelegateyAA014AuthenticationH0_p_tF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC7BuilderP5setup12authDelegateyAA014AuthenticationH0_p_tF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKitBuilder>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKitBuilder>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -6450,6 +6477,33 @@
             "declKind": "Func",
             "usr": "s:25ZendeskSDKConversationKit019DefaultConversationC7BuilderC5build4with13callbackQueueAA0eC0_pAA18SettingsParametersV_So17OS_dispatch_queueCtF",
             "mangledName": "$s25ZendeskSDKConversationKit019DefaultConversationC7BuilderC5build4with13callbackQueueAA0eC0_pAA18SettingsParametersV_So17OS_dispatch_queueCtF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setup",
+            "printedName": "setup(authDelegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AuthenticationDelegate",
+                "printedName": "any ZendeskSDKConversationKit.AuthenticationDelegate",
+                "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit019DefaultConversationC7BuilderC5setup12authDelegateyAA014AuthenticationI0_p_tF",
+            "mangledName": "$s25ZendeskSDKConversationKit019DefaultConversationC7BuilderC5setup12authDelegateyAA014AuthenticationI0_p_tF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "Final",
@@ -8323,6 +8377,128 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "authenticationDelegate",
+            "printedName": "authenticationDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any ZendeskSDKConversationKit.AuthenticationDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AuthenticationDelegate",
+                    "printedName": "any ZendeskSDKConversationKit.AuthenticationDelegate",
+                    "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvpZ",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvpZ",
+            "moduleName": "ZendeskSDKConversationKit",
+            "static": true,
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ZendeskSDKConversationKit.AuthenticationDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthenticationDelegate",
+                        "printedName": "any ZendeskSDKConversationKit.AuthenticationDelegate",
+                        "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvgZ",
+                "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvgZ",
+                "moduleName": "ZendeskSDKConversationKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+                "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any ZendeskSDKConversationKit.AuthenticationDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AuthenticationDelegate",
+                        "printedName": "any ZendeskSDKConversationKit.AuthenticationDelegate",
+                        "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvsZ",
+                "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvsZ",
+                "moduleName": "ZendeskSDKConversationKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+                "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+                "static": true,
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvMZ",
+                "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P22authenticationDelegateAA014AuthenticationF0_pSgvMZ",
+                "moduleName": "ZendeskSDKConversationKit",
+                "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
+                "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
+                "static": true,
+                "protocolReq": true,
+                "implicit": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "addEventObserver",
             "printedName": "addEventObserver(_:_:)",
@@ -8755,7 +8931,7 @@
           {
             "kind": "Function",
             "name": "getConversations",
-            "printedName": "getConversations(offset:result:)",
+            "printedName": "getConversations(offset:fromCache:result:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8767,6 +8943,12 @@
                 "name": "Int",
                 "printedName": "Swift.Int",
                 "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               },
               {
                 "kind": "TypeNominal",
@@ -8810,8 +8992,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset6resultySi_ys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset6resultySi_ys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset9fromCache6resultySi_Sbys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset9fromCache6resultySi_Sbys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -8825,7 +9007,7 @@
           {
             "kind": "Function",
             "name": "getConversations",
-            "printedName": "getConversations(offset:)",
+            "printedName": "getConversations(offset:fromCache:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8838,11 +9020,17 @@
                 "name": "Int",
                 "printedName": "Swift.Int",
                 "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P16getConversations6offsetAA0D4ListCSi_tYaKF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P16getConversations6offsetAA0D4ListCSi_tYaKF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset9fromCacheAA0D4ListCSi_SbtYaKF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0P16getConversations6offset9fromCacheAA0D4ListCSi_SbtYaKF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -10626,7 +10814,7 @@
           {
             "kind": "Function",
             "name": "getConversations",
-            "printedName": "getConversations(offset:result:)",
+            "printedName": "getConversations(offset:fromCache:result:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -10638,6 +10826,13 @@
                 "name": "Int",
                 "printedName": "Swift.Int",
                 "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               },
               {
                 "kind": "TypeNominal",
@@ -10681,8 +10876,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset6resultySi_ys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset6resultySi_ys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset9fromCache6resultySi_Sbys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset9fromCache6resultySi_Sbys6ResultOyAA0D4ListCAA0dC5ErrorOGcSgtF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -10692,7 +10887,7 @@
           {
             "kind": "Function",
             "name": "getConversations",
-            "printedName": "getConversations(offset:)",
+            "printedName": "getConversations(offset:fromCache:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -10705,11 +10900,18 @@
                 "name": "Int",
                 "printedName": "Swift.Int",
                 "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offsetAA0D4ListCSi_tYaKF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offsetAA0D4ListCSi_tYaKF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset9fromCacheAA0D4ListCSi_SbtYaKF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC0PAAE16getConversations6offset9fromCacheAA0D4ListCSi_SbtYaKF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.ConversationKit>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.ConversationKit>",
@@ -16750,6 +16952,60 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "getJWT",
+            "printedName": "getJWT()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit4UserC6getJWTSSSgyF",
+            "mangledName": "$s25ZendeskSDKConversationKit4UserC6getJWTSSSgyF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAuthorizationHeaderValue",
+            "printedName": "getAuthorizationHeaderValue()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit4UserC27getAuthorizationHeaderValueSSyF",
+            "mangledName": "$s25ZendeskSDKConversationKit4UserC27getAuthorizationHeaderValueSSyF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -21421,6 +21677,13 @@
         "kind": "Import",
         "name": "ZendeskSDKHTTPClient",
         "printedName": "ZendeskSDKHTTPClient",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKCoreUtilities",
+        "printedName": "ZendeskSDKCoreUtilities",
         "declKind": "Import",
         "moduleName": "ZendeskSDKConversationKit"
       },
@@ -27316,6 +27579,121 @@
         "printedName": "ZendeskSDKStorage",
         "declKind": "Import",
         "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKCoreUtilities",
+        "printedName": "ZendeskSDKCoreUtilities",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKLogger",
+        "printedName": "ZendeskSDKLogger",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "ZendeskSDKHTTPClient",
+        "printedName": "ZendeskSDKHTTPClient",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKConversationKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AuthenticationDelegate",
+        "printedName": "AuthenticationDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onInvalidAuth",
+            "printedName": "onInvalidAuth(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuthyyySScF",
+            "mangledName": "$s25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuthyyySScF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.AuthenticationDelegate>",
+            "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.AuthenticationDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP",
+        "mangledName": "$s25ZendeskSDKConversationKit22AuthenticationDelegateP",
+        "moduleName": "ZendeskSDKConversationKit",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -40304,6 +40682,20 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKit.swift",
+      "kind": "BooleanLiteral",
+      "offset": 20906,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/ConversationKit.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21127,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
       "offset": 2839,
@@ -40572,14 +40964,14 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorInMemoryDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1104,
+      "offset": 1109,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorInMemoryDataSource.swift",
       "kind": "Dictionary",
-      "offset": 1679,
+      "offset": 1684,
       "length": 3,
       "value": "[]"
     },
@@ -40638,6 +41030,27 @@
       "offset": 1149,
       "length": 1,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/AuthenticationErrorHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 885,
+      "length": 30,
+      "value": "\"AUTHENTICATION_ERROR_HANDLER\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/AuthenticationErrorHandler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 996,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/AuthenticationErrorHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1029,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Actions\/WebViewAction.swift",
@@ -40752,6 +41165,13 @@
       "value": "\"baseUrl\""
     },
     {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/AsyncLock.swift",
+      "kind": "Array",
+      "offset": 793,
+      "length": 2,
+      "value": "[]"
+    },
+    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "StringLiteral",
       "offset": 821,
@@ -40806,6 +41226,13 @@
       "offset": 3874,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6549,
+      "length": 3,
+      "value": "401"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationStatus.swift",
