@@ -38,6 +38,7 @@ public enum FayeClientError : Swift.Error {
   case dataDecodeError(data: Foundation.Data)
   case notConnected
   case socketError(error: (any Swift.Error)?)
+  case subscribeFailed
 }
 extension ZendeskSDKFayeClient.FayeClientError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKFayeClient.FayeClientError, rhs: ZendeskSDKFayeClient.FayeClientError) -> Swift.Bool
