@@ -2900,216 +2900,6 @@
             "funcSelfKind": "NonMutating"
           },
           {
-            "kind": "Function",
-            "name": "copyAndUpdate",
-            "printedName": "copyAndUpdate(displayName:messages:hasPrevious:participants:businessLastRead:myself:activity:status:metadata:routingStatus:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Conversation",
-                "printedName": "ZendeskSDKConversationKit.Conversation",
-                "usr": "s:25ZendeskSDKConversationKit12ConversationC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[ZendeskSDKConversationKit.Message]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[ZendeskSDKConversationKit.Message]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Message",
-                        "printedName": "ZendeskSDKConversationKit.Message",
-                        "usr": "s:25ZendeskSDKConversationKit7MessageC"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Bool?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[ZendeskSDKConversationKit.Participant]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Array",
-                    "printedName": "[ZendeskSDKConversationKit.Participant]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Participant",
-                        "printedName": "ZendeskSDKConversationKit.Participant",
-                        "usr": "s:25ZendeskSDKConversationKit11ParticipantC"
-                      }
-                    ],
-                    "usr": "s:Sa"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.Date?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZendeskSDKConversationKit.Participant?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Participant",
-                    "printedName": "ZendeskSDKConversationKit.Participant",
-                    "usr": "s:25ZendeskSDKConversationKit11ParticipantC"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZendeskSDKConversationKit.Activity??",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "ZendeskSDKConversationKit.Activity?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Activity",
-                        "printedName": "ZendeskSDKConversationKit.Activity",
-                        "usr": "s:25ZendeskSDKConversationKit8ActivityC"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZendeskSDKConversationKit.ConversationStatus?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ConversationStatus",
-                    "printedName": "ZendeskSDKConversationKit.ConversationStatus",
-                    "usr": "s:25ZendeskSDKConversationKit18ConversationStatusO"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "[Swift.String : Swift.AnyHashable]?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Swift.AnyHashable]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyHashable",
-                        "printedName": "Swift.AnyHashable",
-                        "usr": "s:s11AnyHashableV"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "ZendeskSDKConversationKit.ConversationRoutingStatus?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "ConversationRoutingStatus",
-                    "printedName": "ZendeskSDKConversationKit.ConversationRoutingStatus",
-                    "usr": "s:25ZendeskSDKConversationKit25ConversationRoutingStatusO"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit12ConversationC13copyAndUpdate11displayName8messages11hasPrevious12participants16businessLastRead6myself8activity6status8metadata13routingStatusACSSSg_SayAA7MessageCGSgSbSgSayAA11ParticipantCGSg10Foundation4DateVSgAVSgAA8ActivityCSgSgAA0dV0OSgSDySSs11AnyHashableVGSgAA0d7RoutingV0OSgtF",
-            "mangledName": "$s25ZendeskSDKConversationKit12ConversationC13copyAndUpdate11displayName8messages11hasPrevious12participants16businessLastRead6myself8activity6status8metadata13routingStatusACSSSg_SayAA7MessageCGSgSbSgSayAA11ParticipantCGSg10Foundation4DateVSgAVSgAA8ActivityCSgSgAA0dV0OSgSDySSs11AnyHashableVGSgAA0d7RoutingV0OSgtF",
-            "moduleName": "ZendeskSDKConversationKit",
-            "declAttributes": [
-              "Final"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
             "kind": "Var",
             "name": "mostRecentUpdateTime",
             "printedName": "mostRecentUpdateTime",
@@ -41180,13 +40970,6 @@
       "value": "3"
     },
     {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorLocalDataSource.swift",
-      "kind": "StringLiteral",
-      "offset": 716,
-      "length": 58,
-      "value": "\"com.zendesk.conversationkit.userprocessorlocaldatasource\""
-    },
-    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/ConversationsList.swift",
       "kind": "BooleanLiteral",
       "offset": 905,
@@ -41258,43 +41041,29 @@
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
-      "kind": "StringLiteral",
-      "offset": 1449,
-      "length": 31,
-      "value": "\"com.zendesk.sunco.faye.client\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 2700,
+      "offset": 2171,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
-      "offset": 2914,
+      "offset": 2385,
       "length": 19,
       "value": "\"SUNCO_FAYE_CLIENT\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "IntegerLiteral",
-      "offset": 3129,
+      "offset": 2600,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/ConversationKitStore.swift",
       "kind": "StringLiteral",
-      "offset": 1877,
-      "length": 41,
-      "value": "\"com.zendesk.conversationkit.store.state\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/ConversationKitStore.swift",
-      "kind": "StringLiteral",
-      "offset": 2261,
+      "offset": 1839,
       "length": 7,
       "value": "\"STORE\""
     },
@@ -41332,13 +41101,6 @@
       "offset": 2143,
       "length": 6,
       "value": "\"\r\n\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserProcessor.swift",
-      "kind": "FloatLiteral",
-      "offset": 1616,
-      "length": 4,
-      "value": "0.25"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/ClientInfoDTO.swift",
@@ -41517,22 +41279,15 @@
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorInMemoryDataSource.swift",
-      "kind": "StringLiteral",
-      "offset": 722,
-      "length": 61,
-      "value": "\"com.zendesk.conversationkit.userprocessorinmemorydatasource\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorInMemoryDataSource.swift",
       "kind": "BooleanLiteral",
-      "offset": 1528,
+      "offset": 1109,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/UserRepository\/UserProcessorInMemoryDataSource.swift",
       "kind": "Dictionary",
-      "offset": 2213,
+      "offset": 1684,
       "length": 3,
       "value": "[]"
     },
@@ -41717,27 +41472,6 @@
       "offset": 1043,
       "length": 9,
       "value": "\"POLLING\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
-      "kind": "StringLiteral",
-      "offset": 1440,
-      "length": 19,
-      "value": "\"PollingStateQueue\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1496,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/DefaultZendeskPolling.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1534,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/EndUserExpectationsRepository\/EndUserExpectationsRepository.swift",
@@ -42004,13 +41738,6 @@
       "offset": 700,
       "length": 20,
       "value": "\"proactiveMessaging\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Connectivity\/ConnectivityObserver.swift",
-      "kind": "StringLiteral",
-      "offset": 787,
-      "length": 27,
-      "value": "\"ConnectivityObserverQueue\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Authentication.swift",

@@ -27,7 +27,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKStorage",
             url: "https://github.com/zendesk/sdk_storage_ios",
-            from: "1.4.0"
+            from: "1.3.0"
         ),
         .package(
             name: "ZendeskSDKCoreUtilities",
