@@ -16781,6 +16781,55 @@
           },
           {
             "kind": "Var",
+            "name": "email",
+            "printedName": "email",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25ZendeskSDKConversationKit4UserC5emailSSvp",
+            "mangledName": "$s25ZendeskSDKConversationKit4UserC5emailSSvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit4UserC5emailSSvg",
+                "mangledName": "$s25ZendeskSDKConversationKit4UserC5emailSSvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "locale",
             "printedName": "locale",
             "children": [
@@ -27951,12 +28000,26 @@
           {
             "kind": "Function",
             "name": "onInvalidAuth",
-            "printedName": "onInvalidAuth(_:)",
+            "printedName": "onInvalidAuth(error:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -27978,8 +28041,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuthyyySScF",
-            "mangledName": "$s25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuthyyySScF",
+            "usr": "s:25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuth5error10completionys5Error_pSg_ySSctF",
+            "mangledName": "$s25ZendeskSDKConversationKit22AuthenticationDelegateP13onInvalidAuth5error10completionys5Error_pSg_ySSctF",
             "moduleName": "ZendeskSDKConversationKit",
             "genericSig": "<τ_0_0 where τ_0_0 : ZendeskSDKConversationKit.AuthenticationDelegate>",
             "sugared_genericSig": "<Self where Self : ZendeskSDKConversationKit.AuthenticationDelegate>",
@@ -41257,6 +41320,13 @@
       "value": "\"VISIT_TYPE\""
     },
     {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/StorageClients\/ConversationKitStorage.swift",
+      "kind": "StringLiteral",
+      "offset": 1196,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Faye\/SunCoFayeClient.swift",
       "kind": "StringLiteral",
       "offset": 1449,
@@ -41805,49 +41875,56 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "StringLiteral",
-      "offset": 959,
+      "offset": 921,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "StringLiteral",
-      "offset": 1017,
+      "offset": 1007,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
+      "kind": "StringLiteral",
+      "offset": 1065,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "Array",
-      "offset": 2728,
+      "offset": 2776,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "Array",
-      "offset": 3079,
+      "offset": 3127,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "BooleanLiteral",
-      "offset": 3139,
+      "offset": 3187,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "Array",
-      "offset": 3874,
+      "offset": 3922,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/Store\/AccessLevel\/ActionProcessors\/ModelMapper.swift",
       "kind": "IntegerLiteral",
-      "offset": 6549,
+      "offset": 6597,
       "length": 3,
       "value": "401"
     },
