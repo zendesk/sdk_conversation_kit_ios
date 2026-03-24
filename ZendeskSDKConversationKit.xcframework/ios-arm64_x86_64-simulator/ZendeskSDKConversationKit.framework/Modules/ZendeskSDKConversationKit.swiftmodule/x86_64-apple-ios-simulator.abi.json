@@ -20205,6 +20205,55 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "sdkVersion",
+            "printedName": "sdkVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25ZendeskSDKConversationKit6ConfigC10sdkVersionSSvp",
+            "mangledName": "$s25ZendeskSDKConversationKit6ConfigC10sdkVersionSSvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit6ConfigC10sdkVersionSSvg",
+                "mangledName": "$s25ZendeskSDKConversationKit6ConfigC10sdkVersionSSvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "TypeDecl",
             "name": "Region",
             "printedName": "Region",
@@ -20421,7 +20470,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(appId:baseURL:settingsBaseURL:integrationId:region:restRetryPolicy:waitTimeConfig:)",
+            "printedName": "init(appId:baseURL:settingsBaseURL:integrationId:region:restRetryPolicy:waitTimeConfig:sdkVersion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -20471,11 +20520,17 @@
                 "name": "WaitTimeConfig",
                 "printedName": "ZendeskSDKConversationKit.WaitTimeConfig",
                 "usr": "s:25ZendeskSDKConversationKit14WaitTimeConfigC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:25ZendeskSDKConversationKit6ConfigC5appId7baseURL012settingsBaseH0011integrationF06region15restRetryPolicy08waitTimeD0ACSS_S3SAC6RegionOAA04RestnO0CAA04WaitqD0Ctcfc",
-            "mangledName": "$s25ZendeskSDKConversationKit6ConfigC5appId7baseURL012settingsBaseH0011integrationF06region15restRetryPolicy08waitTimeD0ACSS_S3SAC6RegionOAA04RestnO0CAA04WaitqD0Ctcfc",
+            "usr": "s:25ZendeskSDKConversationKit6ConfigC5appId7baseURL012settingsBaseH0011integrationF06region15restRetryPolicy08waitTimeD010sdkVersionACSS_S3SAC6RegionOAA04RestnO0CAA04WaitqD0CSStcfc",
+            "mangledName": "$s25ZendeskSDKConversationKit6ConfigC5appId7baseURL012settingsBaseH0011integrationF06region15restRetryPolicy08waitTimeD010sdkVersionACSS_S3SAC6RegionOAA04RestnO0CAA04WaitqD0CSStcfc",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "AccessControl",
@@ -23186,12 +23241,12 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (Swift.String, ZendeskSDKConversationKit.WebViewActionSize, Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (Swift.String, ZendeskSDKConversationKit.WebViewActionSize, Swift.String, Swift.Bool) -> ZendeskSDKConversationKit.ConversationKitEvent",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(Swift.String, ZendeskSDKConversationKit.WebViewActionSize, Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                    "printedName": "(Swift.String, ZendeskSDKConversationKit.WebViewActionSize, Swift.String, Swift.Bool) -> ZendeskSDKConversationKit.ConversationKitEvent",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -23202,7 +23257,7 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Tuple",
-                        "printedName": "(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)",
+                        "printedName": "(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String, isSurvey: Swift.Bool)",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -23221,6 +23276,12 @@
                             "name": "String",
                             "printedName": "Swift.String",
                             "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
                           }
                         ]
                       }
@@ -23243,8 +23304,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO26openWebViewMessageReceivedyACSS_AA0gH10ActionSizeOSStcACmF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO26openWebViewMessageReceivedyACSS_AA0gH10ActionSizeOSStcACmF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO26openWebViewMessageReceivedyACSS_AA0gH10ActionSizeOSSSbtcACmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO26openWebViewMessageReceivedyACSS_AA0gH10ActionSizeOSSSbtcACmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "RawDocComment"
@@ -41462,7 +41523,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Config.swift",
       "kind": "IntegerLiteral",
-      "offset": 1448,
+      "offset": 1525,
       "length": 2,
       "value": "1"
     },
