@@ -22481,12 +22481,12 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (ZendeskSDKConversationKit.Message, Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (ZendeskSDKConversationKit.Message, Swift.String, Swift.String?) -> ZendeskSDKConversationKit.ConversationKitEvent",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(ZendeskSDKConversationKit.Message, Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                    "printedName": "(ZendeskSDKConversationKit.Message, Swift.String, Swift.String?) -> ZendeskSDKConversationKit.ConversationKitEvent",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -22497,7 +22497,7 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Tuple",
-                        "printedName": "(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)",
+                        "printedName": "(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, sourceType: Swift.String?)",
                         "children": [
                           {
                             "kind": "TypeNominal",
@@ -22510,6 +22510,20 @@
                             "name": "String",
                             "printedName": "Swift.String",
                             "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "Swift.String?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ],
+                            "usr": "s:Sq"
                           }
                         ]
                       }
@@ -22532,8 +22546,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO15messageReceivedyAcA7MessageC_SStcACmF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO15messageReceivedyAcA7MessageC_SStcACmF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO15messageReceivedyAcA7MessageC_S2SSgtcACmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO15messageReceivedyAcA7MessageC_S2SSgtcACmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "RawDocComment"
@@ -41341,21 +41355,21 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 2839,
+      "offset": 2915,
       "length": 5,
       "value": "\"_id\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 3055,
+      "offset": 3131,
       "length": 11,
       "value": "\"avatarUrl\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Internal\/RESTClients\/SharedModels\/MessageDTO.swift",
       "kind": "StringLiteral",
-      "offset": 3091,
+      "offset": 3167,
       "length": 10,
       "value": "\"mediaUrl\""
     },

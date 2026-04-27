@@ -22,7 +22,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKHTTPClient",
             url: "https://github.com/zendesk/sdk_http_client_ios",
-            from: "0.20.0"
+            from: "0.20.1"
         ),
         .package(
             name: "ZendeskSDKStorage",
