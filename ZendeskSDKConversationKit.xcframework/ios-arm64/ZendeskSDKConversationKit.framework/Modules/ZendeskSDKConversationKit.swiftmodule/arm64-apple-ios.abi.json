@@ -22627,12 +22627,12 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (ZendeskSDKConversationKit.ConversationKitError) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (ZendeskSDKConversationKit.ConversationKitError, Swift.String, Swift.Bool) -> ZendeskSDKConversationKit.ConversationKitEvent",
                 "children": [
                   {
                     "kind": "TypeFunc",
                     "name": "Function",
-                    "printedName": "(ZendeskSDKConversationKit.ConversationKitError) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                    "printedName": "(ZendeskSDKConversationKit.ConversationKitError, Swift.String, Swift.Bool) -> ZendeskSDKConversationKit.ConversationKitEvent",
                     "children": [
                       {
                         "kind": "TypeNominal",
@@ -22643,13 +22643,25 @@
                       {
                         "kind": "TypeNominal",
                         "name": "Tuple",
-                        "printedName": "(error: ZendeskSDKConversationKit.ConversationKitError)",
+                        "printedName": "(error: ZendeskSDKConversationKit.ConversationKitError, conversationId: Swift.String, isMetaDataUpdated: Swift.Bool)",
                         "children": [
                           {
                             "kind": "TypeNominal",
                             "name": "ConversationKitError",
                             "printedName": "ZendeskSDKConversationKit.ConversationKitError",
                             "usr": "s:25ZendeskSDKConversationKit012ConversationC5ErrorO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
                           }
                         ]
                       }
@@ -22672,8 +22684,8 @@
               }
             ],
             "declKind": "EnumElement",
-            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO17sendMessageFailedyAcA0dC5ErrorO_tcACmF",
-            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO17sendMessageFailedyAcA0dC5ErrorO_tcACmF",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO17sendMessageFailedyAcA0dC5ErrorO_SSSbtcACmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO17sendMessageFailedyAcA0dC5ErrorO_SSSbtcACmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "RawDocComment"
@@ -23400,6 +23412,66 @@
             "declKind": "EnumElement",
             "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO23fetchWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
             "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO23fetchWaitTimeDataResultyACSS_s0J0OyAA0ghI0CAA0dC5ErrorOGtcACmF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sentMetadataSuccessfully",
+            "printedName": "sentMetadataSuccessfully",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(ZendeskSDKConversationKit.ConversationKitEvent.Type) -> (Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ZendeskSDKConversationKit.ConversationKitEvent",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConversationKitEvent",
+                        "printedName": "ZendeskSDKConversationKit.ConversationKitEvent",
+                        "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(conversationId: Swift.String)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "ZendeskSDKConversationKit.ConversationKitEvent.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ConversationKitEvent",
+                        "printedName": "ZendeskSDKConversationKit.ConversationKitEvent",
+                        "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:25ZendeskSDKConversationKit012ConversationC5EventO24sentMetadataSuccessfullyyACSS_tcACmF",
+            "mangledName": "$s25ZendeskSDKConversationKit012ConversationC5EventO24sentMetadataSuccessfullyyACSS_tcACmF",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "RawDocComment"
