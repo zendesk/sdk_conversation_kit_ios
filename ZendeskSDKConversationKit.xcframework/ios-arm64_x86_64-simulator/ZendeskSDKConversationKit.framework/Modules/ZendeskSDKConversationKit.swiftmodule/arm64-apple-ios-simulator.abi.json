@@ -29638,9 +29638,58 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "isSurvey",
+            "printedName": "isSurvey",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC8isSurveySbvp",
+            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC8isSurveySbvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit13WebViewActionC8isSurveySbvg",
+                "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC8isSurveySbvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(id:text:uri:default:fallback:metadata:openOnReceive:size:)",
+            "printedName": "init(id:text:uri:default:fallback:metadata:openOnReceive:size:isSurvey:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -29718,11 +29767,18 @@
                 "name": "WebViewActionSize",
                 "printedName": "ZendeskSDKConversationKit.WebViewActionSize",
                 "usr": "s:25ZendeskSDKConversationKit17WebViewActionSizeO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC2id4text3uri7default8fallback8metadata13openOnReceive4sizeACSS_S2SSbSSSDySSs11AnyHashableVGSgSbAA0deF4SizeOtcfc",
-            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC2id4text3uri7default8fallback8metadata13openOnReceive4sizeACSS_S2SSbSSSDySSs11AnyHashableVGSgSbAA0deF4SizeOtcfc",
+            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC2id4text3uri7default8fallback8metadata13openOnReceive4size8isSurveyACSS_S2SSbSSSDySSs11AnyHashableVGSgSbAA0deF4SizeOSbtcfc",
+            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC2id4text3uri7default8fallback8metadata13openOnReceive4size8isSurveyACSS_S2SSbSSSDySSs11AnyHashableVGSgSbAA0deF4SizeOSbtcfc",
             "moduleName": "ZendeskSDKConversationKit",
             "declAttributes": [
               "AccessControl"
@@ -29772,6 +29828,63 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WebViewAction",
+                "printedName": "ZendeskSDKConversationKit.WebViewAction",
+                "usr": "s:25ZendeskSDKConversationKit13WebViewActionC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Required",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "any Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC6encode2toys7Encoder_p_tKF",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -29834,60 +29947,6 @@
               "Final",
               "AccessControl"
             ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(from:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "WebViewAction",
-                "printedName": "ZendeskSDKConversationKit.WebViewAction",
-                "usr": "s:25ZendeskSDKConversationKit13WebViewActionC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Decoder",
-                "printedName": "any Swift.Decoder",
-                "usr": "s:s7DecoderP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC4fromACs7Decoder_p_tKcfc",
-            "moduleName": "ZendeskSDKConversationKit",
-            "implicit": true,
-            "throwing": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "any Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:25ZendeskSDKConversationKit13WebViewActionC6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s25ZendeskSDKConversationKit13WebViewActionC6encode2toys7Encoder_p_tKF",
-            "moduleName": "ZendeskSDKConversationKit",
-            "implicit": true,
-            "declAttributes": [
-              "Final"
-            ],
-            "throwing": true,
             "funcSelfKind": "NonMutating"
           },
           {
@@ -31594,6 +31653,72 @@
                 "declKind": "Accessor",
                 "usr": "s:25ZendeskSDKConversationKit7MessageC8sourceIdSSSgvg",
                 "mangledName": "$s25ZendeskSDKConversationKit7MessageC8sourceIdSSSgvg",
+                "moduleName": "ZendeskSDKConversationKit",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sourceType",
+            "printedName": "sourceType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:25ZendeskSDKConversationKit7MessageC10sourceTypeSSSgvp",
+            "mangledName": "$s25ZendeskSDKConversationKit7MessageC10sourceTypeSSSgvp",
+            "moduleName": "ZendeskSDKConversationKit",
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:25ZendeskSDKConversationKit7MessageC10sourceTypeSSSgvg",
+                "mangledName": "$s25ZendeskSDKConversationKit7MessageC10sourceTypeSSSgvg",
                 "moduleName": "ZendeskSDKConversationKit",
                 "implicit": true,
                 "declAttributes": [
@@ -41839,15 +41964,22 @@
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Actions\/WebViewAction.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1911,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Actions\/WebViewAction.swift",
       "kind": "IntegerLiteral",
-      "offset": 4184,
+      "offset": 6476,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Actions\/WebViewAction.swift",
       "kind": "IntegerLiteral",
-      "offset": 4198,
+      "offset": 6490,
       "length": 7,
       "value": "2"
     },
@@ -41861,21 +41993,21 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Message.swift",
       "kind": "BooleanLiteral",
-      "offset": 2641,
+      "offset": 2798,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Message.swift",
       "kind": "BooleanLiteral",
-      "offset": 3223,
+      "offset": 3410,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/ConversationKit\/ConversationKit\/Source\/Public\/Models\/Message.swift",
       "kind": "BooleanLiteral",
-      "offset": 4021,
+      "offset": 4208,
       "length": 5,
       "value": "false"
     },
