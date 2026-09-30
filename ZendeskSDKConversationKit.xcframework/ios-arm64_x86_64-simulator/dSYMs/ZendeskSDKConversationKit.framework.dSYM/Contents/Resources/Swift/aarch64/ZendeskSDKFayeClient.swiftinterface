@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKFayeClient
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKFayeClient
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Foundation
 import Swift
 @_exported import ZendeskSDKFayeClient
@@ -44,28 +44,56 @@ extension ZendeskSDKFayeClient.FayeClientError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKFayeClient.FayeClientError, rhs: ZendeskSDKFayeClient.FayeClientError) -> Swift.Bool
 }
 public protocol FayeClient {
+  #if compiler(>=5.3) && $NonescapableTypes
   var delegate: (any ZendeskSDKFayeClient.FayeClientDelegate)? { get set }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   var clientId: Swift.String? { get }
+  #endif
   var connectionState: ZendeskSDKFayeClient.FayeConnectionState { get }
   var keepConnectionAlive: Swift.Bool { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   func connect(supportedConnectionTypes: [Swift.String]?, handshakeId: Swift.String?, connectId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func connect<T>(supportedConnectionTypes: [Swift.String]?, handshakeExt: T, handshakeId: Swift.String?, connectId: Swift.String?) where T : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func connect<T>(supportedConnectionTypes: [Swift.String]?, handshakeId: Swift.String?, connectExt: T, connectId: Swift.String?) where T : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func connect<T, S>(supportedConnectionTypes: [Swift.String]?, handshakeExt: T, handshakeId: Swift.String?, connectExt: S, connectId: Swift.String?) where T : Swift.Encodable, S : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func disconnect(id: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func disconnect<T>(id: Swift.String?, ext: T) where T : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func subscribe(to channel: Swift.String, id: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func subscribe<T>(to channel: Swift.String, id: Swift.String?, ext: T) where T : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func unsubscribe(from channel: Swift.String, id: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func unsubscribe<T>(from channel: Swift.String, id: Swift.String?, ext: T) where T : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func publish<E>(to channel: Swift.String, data: E, id: Swift.String?) where E : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func publish<E, T>(to channel: Swift.String, data: E, id: Swift.String?, ext: T) where E : Swift.Encodable, T : Swift.Encodable
+  #endif
 }
 public enum FayeConnectionState : Swift.Equatable {
   case disconnected
   case connected
-  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: ZendeskSDKFayeClient.FayeConnectionState, b: ZendeskSDKFayeClient.FayeConnectionState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }

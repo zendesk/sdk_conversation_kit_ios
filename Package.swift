@@ -1,9 +1,9 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 import PackageDescription
 let package = Package(
     name: "ZendeskSDKConversationKit",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v16)
     ],
     products: [
         .library(
@@ -17,22 +17,22 @@ let package = Package(
         .package(
             name: "ZendeskSDKFayeClient",
             url: "https://github.com/zendesk/sdk_faye_client_ios",
-            from: "1.16.0"
+            from: "1.17.0"
         ),
         .package(
             name: "ZendeskSDKHTTPClient",
             url: "https://github.com/zendesk/sdk_http_client_ios",
-            from: "0.21.0"
+            from: "0.22.0"
         ),
         .package(
             name: "ZendeskSDKStorage",
             url: "https://github.com/zendesk/sdk_storage_ios",
-            from: "1.6.0"
+            from: "1.7.0"
         ),
         .package(
             name: "ZendeskSDKCoreUtilities",
             url: "https://github.com/zendesk/sdk_core_utilities_ios",
-            from: "8.1.0"
+            from: "8.2.0"
         )
     ],
     targets: [
